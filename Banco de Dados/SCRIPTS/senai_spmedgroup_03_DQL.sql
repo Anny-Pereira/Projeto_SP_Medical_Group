@@ -1,0 +1,4 @@
+USE SP_MEDICAL_GROUP;
+GO
+
+SELECT * FROM Paciente
