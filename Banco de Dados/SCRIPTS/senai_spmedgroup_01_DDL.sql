@@ -56,7 +56,7 @@ idPaciente INT PRIMARY KEY IDENTITY(1,1),
 idUsuario INT FOREIGN KEY REFERENCES Usuario(idUsuario),
 nomePaciente VARCHAR(30) NOT NULL,
 dataNascimento DATE NOT NULL,
-telefone VARCHAR (15) UNIQUE NOT NULL,
+telefone VARCHAR (15) UNIQUE,
 rg CHAR(9) UNIQUE NOT NULL,
 cpf CHAR(11) UNIQUE NOT NULL,
 endereco VARCHAR(200) NOT NULL
@@ -79,3 +79,4 @@ dataConsulta DATETIME NOT NULL,
 descricao VARCHAR(210)
 );
 GO
+
