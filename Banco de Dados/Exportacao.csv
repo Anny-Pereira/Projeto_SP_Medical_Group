@@ -1,0 +1,42 @@
+idClinica,nomeClinica,razaoSocial,cnpj,endereco,horarioAbertura,horarioEncerramento
+1,Clinica Possarle,SP Medical Group,86400902000130,Av. Barão Limeira, 532, São Paulo, SP,07:00:00.0000000,18:00:00.0000000
+idAdministrador,idUsuario,nomeAdministrador
+2,11,Sarah
+idEspecialidade,tituloEspecialidade
+1,Acupuntura
+2,Anestesiologia
+3,Angiologia
+4,Cardiologia
+5,Cirurgia Cardiovascular
+6,Cirurgia da Mão
+7,Cirurgia do Aparelho Digestivo
+8,Cirurgia Geral
+9,Cirurgia Pediátrica
+10,Cirurgia Plástica
+11,Cirurgia Torácica
+12,Cirurgia Vascular
+13,Dermatologia
+14,Radioterapia
+15,Urologia
+16,Pediatria
+17,Psiquiatria
+idMedico,idUsuario,idEspecialidade,nomeMedico,crm
+2,1,2,Ricardo Lemos,54356SP
+3,2,17,Roberto Possarle,53452SP
+4,3,16,Helena Strada,65463SP
+idPaciente,idUsuario,nomePaciente,dataNascimento,telefone,rg,cpf,endereco
+1,4,Ligia,1983-10-13,11 34567654,435225435,94839859000,Rua Estado de Israel 240, São Paulo, Estado de São Paulo, 04022-000
+2,5,Alexandre,2001-07-23,11 987656543,326543457,73556944057,Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200
+3,6,Fernando,1978-10-10,11 972084453,546365253,16839338002,Av. Ibirapuera - Indianópolis, 2927, São Paulo - SP, 04029-200
+4,7,Henrique,1985-10-13,11 34566543,543663625,14332654765,R. Vitória, 120 - Vila Sao Jorge, Barueri - SP, 06402-030
+5,8,João,1975-08-27,11 76566377,532544441,91305348010,R. Ver. Geraldo de Camargo, 66 - Santa Luzia, Ribeirão Pires - SP, 09405-380
+6,9,Bruno,1972-03-21,11 954368769,545662667,79799299004,Alameda dos Arapanés, 945 - Indianópolis, São Paulo - SP, 04524-001
+7,10,Mariana,2018-03-05,,545662668,13771913039,R Sao Antonio, 232 - Vila Universal, Barueri - SP, 06407-140
+idPaciente,idUsuario,nomePaciente,dataNascimento,telefone,rg,cpf,endereco
+1,4,Ligia,1983-10-13,11 34567654,435225435,94839859000,Rua Estado de Israel 240, São Paulo, Estado de São Paulo, 04022-000
+2,5,Alexandre,2001-07-23,11 987656543,326543457,73556944057,Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200
+3,6,Fernando,1978-10-10,11 972084453,546365253,16839338002,Av. Ibirapuera - Indianópolis, 2927, São Paulo - SP, 04029-200
+4,7,Henrique,1985-10-13,11 34566543,543663625,14332654765,R. Vitória, 120 - Vila Sao Jorge, Barueri - SP, 06402-030
+5,8,João,1975-08-27,11 76566377,532544441,91305348010,R. Ver. Geraldo de Camargo, 66 - Santa Luzia, Ribeirão Pires - SP, 09405-380
+6,9,Bruno,1972-03-21,11 954368769,545662667,79799299004,Alameda dos Arapanés, 945 - Indianópolis, São Paulo - SP, 04524-001
+7,10,Mariana,2018-03-05,,545662668,13771913039,R Sao Antonio, 232 - Vila Universal, Barueri - SP, 06407-140
