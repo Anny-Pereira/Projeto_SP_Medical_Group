@@ -1,6 +1,7 @@
 USE SP_MEDICAL_GROUP;
 GO
 
+
 SELECT * FROM TipoUsuario;
 GO
 
@@ -60,11 +61,11 @@ AND senha = '444';
 GO
 
 
---PROBLEMA!
 --Mostra a quantidade de usuários 
-SELECT COUNT (idUsuario) AS [ID do usuário]
+SELECT COUNT (idUsuario) AS [Quantidade de usuários]
 FROM Usuario;
 GO
+
 
 
 --Stored Procedure que retorna a quantidade de médicos de uma determinada especialidade
