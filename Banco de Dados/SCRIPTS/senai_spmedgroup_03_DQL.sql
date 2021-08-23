@@ -67,6 +67,18 @@ FROM Usuario;
 GO
 
 
+--Função que retorna idade do usuário
+CREATE FUNCTION F_IdadeUsuario ()
+RETURNS TABLE 
+AS 
+RETURN SELECT nomePaciente, DATEDIFF(year, DataNascimento, GETDATE()) Idade FROM Paciente;
+GO
+
+SELECT * FROM F_IdadeUsuario ();
+GO
+
+
+
 
 --Stored Procedure que retorna a quantidade de médicos de uma determinada especialidade
 CREATE PROCEDURE P_MedicosEspecialidade (@idEspecialidade SMALLINT)
