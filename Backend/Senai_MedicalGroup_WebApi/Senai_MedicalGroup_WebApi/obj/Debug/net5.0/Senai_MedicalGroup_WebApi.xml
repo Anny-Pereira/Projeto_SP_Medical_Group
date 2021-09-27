@@ -63,6 +63,82 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.TiposUsuariosController.ListarTodos">
+            <summary>
+            Lista todos os tipoUsuarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.TiposUsuariosController.BuscarId(System.Int32)">
+            <summary>
+            Busca um tipoUsuario através do seu id
+            </summary>
+            <param name="idTipo">id do tipoUsuario que será buscado</param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.TiposUsuariosController.Cadastrar(Senai_MedicalGroup_WebApi.Domains.TipoUsuario)">
+            <summary>
+            Cadastra um novo TipoUsuario
+            </summary>
+            <param name="novoTipo">objeto que será cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.TiposUsuariosController.Deletar(System.Int32)">
+            <summary>
+            Deleta um tipoUsuario existente
+            </summary>
+            <param name="idTipo">id do tipo que será deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.TiposUsuariosController.Atualizar(System.Int32,Senai_MedicalGroup_WebApi.Domains.TipoUsuario)">
+            <summary>
+            Atualiza um tipoUsuario existente
+            </summary>
+            <param name="idTipo">id do tipoUsuario que será atualizado</param>
+            <param name="tipoAtualizado">objeto com as informações atualizadas</param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.UsuariosController.ListarTodos">
+             <summary>
+             Lista todos os usuarios
+             </summary>
+             <returns></returns>
+            
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.UsuariosController.Cadastrar(Senai_MedicalGroup_WebApi.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuario
+            </summary>
+            <param name="novoUsuario"></param>
+            <returns>retorna o usuario cadastrado e um statusCode</returns>
+            
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.UsuariosController.Deletar(System.Int32)">
+            <summary>
+            Deleta um usuario existente
+            </summary>
+            <param name="idUsuario"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.UsuariosController.BuscarId(System.Int32)">
+            <summary>
+            Busca um usuario através do seu id
+            </summary>
+            <param name="idUsuario">id do usuario que será buscado</param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Senai_MedicalGroup_WebApi.Controllers.UsuariosController.Atualizar(System.Int32,Senai_MedicalGroup_WebApi.Domains.Usuario)">
+            <summary>
+            Atualiza os dados de um usuario existente
+            </summary>
+            <param name="idUsuario"></param>
+            <param name="usuarioAtualizado"></param>
+            <returns></returns>
+            
+        </member>
         <member name="T:Senai_MedicalGroup_WebApi.Interfaces.IClinicaRepository">
             <summary>
             Interface resonsável pela ClinicaRepository
@@ -144,7 +220,7 @@
             <param name="idConsulta">id da consulta que tera a situacao alterada</param>
             <param name="status">parametro que atualiza a sitauacao para 1-Realizada  / 2-Recusada  / 3-Agendada</param>
         </member>
-        <member name="M:Senai_MedicalGroup_WebApi.Interfaces.IConsultaRepository.AddDescricao(Senai_MedicalGroup_WebApi.Domains.Consulta)">
+        <member name="M:Senai_MedicalGroup_WebApi.Interfaces.IConsultaRepository.AddDescricao(System.Int32,Senai_MedicalGroup_WebApi.Domains.Consulta)">
             <summary>
             Adiciona uma descricao no prontuario da consulta
             </summary>

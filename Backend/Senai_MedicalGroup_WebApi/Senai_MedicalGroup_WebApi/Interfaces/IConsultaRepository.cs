@@ -38,7 +38,7 @@ namespace Senai_MedicalGroup_WebApi.Interfaces
         /// </summary>
         /// <param name="idConsulta">id da Consulta que será buscada</param>
         /// <returns></returns>
-        TipoUsuario BuscarId(int idConsulta);
+        Consulta BuscarId(int idConsulta);
 
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Senai_MedicalGroup_WebApi.Interfaces
         /// Adiciona uma descricao no prontuario da consulta
         /// </summary>
         /// <param name="descricao">objeto com a descricao</param>
-        void AddDescricao(Consulta descricao);
+        void AddDescricao(int idConsulta, Consulta descricao);
 
 
         /// <summary>

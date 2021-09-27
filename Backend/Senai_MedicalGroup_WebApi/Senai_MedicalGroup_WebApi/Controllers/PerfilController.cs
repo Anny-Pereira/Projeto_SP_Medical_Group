@@ -36,7 +36,7 @@ namespace Senai_MedicalGroup_WebApi.Controllers
             try
             {
                 //Analisa se tamanho do arquivo é maior que 5MB
-                if (arquivo.Length > 5000) 
+                if (arquivo.Length > 5000000) 
                 {
                     return BadRequest(new {mensagem = "O tamanho máximo da imagem é de 5MB!" });
                 }
@@ -49,7 +49,14 @@ namespace Senai_MedicalGroup_WebApi.Controllers
 
                 int IdUsuario = Convert.ToInt32(HttpContext.User.Claims.First(u=> u.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                _usuarioRepository.SalvarPerfilDir(arquivo, IdUsuario);
+                string resposta = _usuarioRepository.SalvarPerfilDir(arquivo, IdUsuario);
+
+                if (resposta == null)
+                {
+                    return BadRequest("Não foi possível salvar a imagem!");
+                }
+
+   
 
                 return Ok();
 

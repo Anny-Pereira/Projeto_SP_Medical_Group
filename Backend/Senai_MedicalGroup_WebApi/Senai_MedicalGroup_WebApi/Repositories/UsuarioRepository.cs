@@ -66,7 +66,7 @@ namespace Senai_MedicalGroup_WebApi.Repositories
         {
             Usuario usuarioBuscado = BuscarId(idUsuario);
 
-            ctx.Remove(usuarioBuscado);
+            ctx.Usuarios.Remove(usuarioBuscado);
 
             ctx.SaveChanges();
         }
@@ -81,15 +81,35 @@ namespace Senai_MedicalGroup_WebApi.Repositories
             return ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
 
-        public void SalvarPerfilDir(IFormFile foto, int id_usuario)
+        public string SalvarPerfilDir(IFormFile foto, int id_usuario)
         {
-            string nome_novo = id_usuario.ToString() + ".png";
+            string arquivo = foto.FileName.Split('.').Last();
 
-            using (var strem = new FileStream(Path.Combine("ImgPerfil", nome_novo), FileMode.Create))
+            if (arquivo == "png")
             {
-                foto.CopyTo(strem);
+                string nome_novo = id_usuario.ToString() + ".png";
+
+                using (var strem = new FileStream(Path.Combine("ImgPerfil", nome_novo), FileMode.Create))
+                {
+                    foto.CopyTo(strem);
+                }
+
+                return "A imagem foi salva com êxito!";
             }
-            
+
+            if (arquivo == "jpg")
+            {
+                string nome_novo = id_usuario.ToString() + ".jpg";
+
+                using (var strem = new FileStream(Path.Combine("ImgPerfil", nome_novo), FileMode.Create))
+                {
+                    foto.CopyTo(strem);
+                }
+
+                return "A imagem foi salva com êxito!";
+            }
+
+            return null;
         }
     }
 }

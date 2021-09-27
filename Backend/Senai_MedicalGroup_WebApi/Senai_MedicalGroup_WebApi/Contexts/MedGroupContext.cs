@@ -32,8 +32,13 @@ namespace Senai_MedicalGroup_WebApi.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+
+                //CASA
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-TUQ4VJR\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
+
+                //SENAI
+                //optionsBuilder.UseSqlServer("Data Source=NOTE0113G5\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=Senai@132;");
 
                 //Azure
                 //...

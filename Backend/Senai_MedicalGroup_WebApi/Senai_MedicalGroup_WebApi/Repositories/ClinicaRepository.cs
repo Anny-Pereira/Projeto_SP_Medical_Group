@@ -49,7 +49,7 @@ namespace Senai_MedicalGroup_WebApi.Repositories
         {
             Clinica clinicaBuscada = BuscarId(idClinica);
 
-            ctx.Remove(clinicaBuscada);
+            ctx.Clinicas.Remove(clinicaBuscada);
 
             ctx.SaveChanges();
         }

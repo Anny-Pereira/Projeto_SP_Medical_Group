@@ -65,7 +65,7 @@ namespace Senai_MedicalGroup_WebApi.Interfaces
         /// </summary>
         /// <param name="foto"></param>
         /// <param name="id_usuario"></param>
-        void SalvarPerfilDir(IFormFile foto, int id_usuario);
+        string SalvarPerfilDir(IFormFile foto, int id_usuario);
 
 
         /// <summary>
