@@ -22,7 +22,6 @@ namespace Senai_MedicalGroup_WebApi.Domains
         [Required(ErrorMessage = "Este campo é obrigatório!")]
         public DateTime DataNascimento { get; set; }
 
-        [Required(ErrorMessage = "Este campo é obrigatório!")]
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório!")]

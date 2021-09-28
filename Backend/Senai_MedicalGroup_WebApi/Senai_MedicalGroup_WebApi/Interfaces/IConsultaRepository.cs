@@ -54,13 +54,15 @@ namespace Senai_MedicalGroup_WebApi.Interfaces
         /// </summary>
         /// <param name="idConsulta">id da consulta que tera a situacao alterada</param>
         /// <param name="status">parametro que atualiza a sitauacao para 1-Realizada  / 2-Recusada  / 3-Agendada</param>
-        void AgendarCancelar(int idConsulta, string status);
+        void AgendarCancelar(int idConsulta, Consulta status);
+
 
 
         /// <summary>
         /// Adiciona uma descricao no prontuario da consulta
         /// </summary>
-        /// <param name="descricao">objeto com a descricao</param>
+        /// <param name="idConsulta">id da consulta que será alterada</param>
+        /// <param name="descricao"></param>
         void AddDescricao(int idConsulta, Consulta descricao);
 
 
