@@ -39,9 +39,13 @@ namespace Senai_MedicalGroup_WebApi.Repositories
 
         public void Cadastrar(Paciente novoPaciente)
         {
-            ctx.Pacientes.Add(novoPaciente);
 
-            ctx.SaveChanges();
+            if (novoPaciente.DataNascimento > DateTime.Now)
+            {
+                ctx.Pacientes.Add(novoPaciente);
+
+                ctx.SaveChanges();
+            }
         }
 
         public void Deletar(int idPaciente)

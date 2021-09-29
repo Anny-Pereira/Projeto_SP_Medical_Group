@@ -88,9 +88,12 @@ namespace Senai_MedicalGroup_WebApi.Repositories
 
         public void Cadastrar(Consulta novaConsulta)
         {
-            ctx.Consulta.Add(novaConsulta);
+            if (novaConsulta.IdMedico > 0 && novaConsulta.DataConsulta > DateTime.Now)
+            {
+                ctx.Consulta.Add(novaConsulta);
 
-            ctx.SaveChanges();
+                ctx.SaveChanges();
+            }
         }
 
 
