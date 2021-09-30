@@ -681,6 +681,16 @@
 				{
 					"name": "ListarTodos",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjk2NTMxMywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.vgmfzSvNocPvSV8M9-Wp1K1-HFRShvADUi9eB5Ws_V4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -701,11 +711,21 @@
 				{
 					"name": "Cadastrar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjk2NTMxMywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.vgmfzSvNocPvSV8M9-Wp1K1-HFRShvADUi9eB5Ws_V4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idPaciente\": ,\r\n    \"idMedico\": ,\r\n    \"idSituacao\": ,\r\n    \"DataConsulta\": \"\",\r\n    \"Descricao\": \"\"\r\n}",
+							"raw": "{\r\n    \"idPaciente\": 7,\r\n    \"idMedico\": 1,\r\n    \"idSituacao\": 3,\r\n    \"DataConsulta\": \"2021-02-02\",\r\n    \"Descricao\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1103,7 +1123,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjgzNTM0MSwiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.DzZcxRdXWKraL2F8sxUL6Aph1J8UsXRrmaO_7CconnY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjk2NTMxMywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.vgmfzSvNocPvSV8M9-Wp1K1-HFRShvADUi9eB5Ws_V4",
 									"type": "string"
 								}
 							]
@@ -1133,7 +1153,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjgzNTM0MSwiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.DzZcxRdXWKraL2F8sxUL6Aph1J8UsXRrmaO_7CconnY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjk2NTMxMywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.vgmfzSvNocPvSV8M9-Wp1K1-HFRShvADUi9eB5Ws_V4",
 									"type": "string"
 								}
 							]
@@ -1142,7 +1162,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"NomePaciente\": \"Teste\",\r\n    \"DataNascimento\": \"2000-09-27\",\r\n    \"Telefone\": \"13 27483500\",\r\n    \"Rg\":\"512576465\",\r\n    \"Cpf\": \"85936475801\",\r\n    \"Endereco\": \"Rua das Alamedas, 455 - Vila Mariana, São Paulo - SP, 09432-030\"\r\n}",
+							"raw": "{\r\n    \"NomePaciente\": \"Teste888\",\r\n    \"DataNascimento\": \"2022-09-27\",\r\n    \"Telefone\": \"13 27483500\",\r\n    \"Rg\":\"512576465\",\r\n    \"Cpf\": \"85936475801\",\r\n    \"Endereco\": \"Rua das Alamedas, 455 - Vila Mariana, São Paulo - SP, 09432-030\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1212,7 +1232,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjgzNTM0MSwiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.DzZcxRdXWKraL2F8sxUL6Aph1J8UsXRrmaO_7CconnY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjk2NTMxMywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.vgmfzSvNocPvSV8M9-Wp1K1-HFRShvADUi9eB5Ws_V4",
 									"type": "string"
 								}
 							]
@@ -1220,7 +1240,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/pacientes/8",
+							"raw": "http://localhost:5000/api/pacientes/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1229,7 +1249,7 @@
 							"path": [
 								"api",
 								"pacientes",
-								"8"
+								"9"
 							]
 						}
 					},

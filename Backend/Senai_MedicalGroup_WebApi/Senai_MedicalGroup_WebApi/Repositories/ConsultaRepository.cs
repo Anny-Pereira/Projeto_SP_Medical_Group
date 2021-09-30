@@ -94,6 +94,11 @@ namespace Senai_MedicalGroup_WebApi.Repositories
 
                 ctx.SaveChanges();
             }
+
+            else
+            {
+                throw new Exception("Não é possível cadastrar uma consulta que não possua um médico e uma data válidos!");
+            }
         }
 
 

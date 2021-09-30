@@ -40,11 +40,15 @@ namespace Senai_MedicalGroup_WebApi.Repositories
         public void Cadastrar(Paciente novoPaciente)
         {
 
-            if (novoPaciente.DataNascimento > DateTime.Now)
+            if (novoPaciente.DataNascimento < DateTime.Now)
             {
                 ctx.Pacientes.Add(novoPaciente);
 
                 ctx.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Não é possível cadastrar um paciente que nem nasceu!");
             }
         }
 

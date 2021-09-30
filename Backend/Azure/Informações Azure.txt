@@ -1,0 +1,4 @@
+serviço Azure BD
+nome do servidor: senai-sp-medical-group
+usuario adm:senai-manha
+senha adm: medicalGroup132
