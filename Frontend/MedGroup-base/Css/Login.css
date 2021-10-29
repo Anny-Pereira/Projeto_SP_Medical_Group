@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+*{ margin: 0;
+    padding: 0;
+    box-sizing: 0;
+ }
+
+ .root{
+     --roxo : #6D60F7;
+     --cinza: #C4C4C4;
+     --lilas: #CE8BF7;
+ }
+
+
+ .login{
+     background-image: url(../Imagens/img_Login\ 1.png);
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-evenly;
+ }
+
+ .logo-login{
+     width: 150px;
+     height: 155px;
+ }
+
+ .container_login{
+     width: 708px;
+     height: 370px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background-color: white;
+     opacity: 0.8;
+     border-radius: 8px;
+     padding: 15px;
+ }
+
+ 
+ .margin{
+    /* width: 80%; */
+    margin: 0 auto;
+}
+
+ h1{
+     font-family: Ubuntu;
+     font-size: 36;
+     color: #6D60F7;
+ }
+
+ .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 330px;
+    justify-content: space-evenly;
+ }
+
+ .centro{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+    width: 90%;
+    align-items: center;
+ }
+
+ span{
+    font-family: Ubuntu;
+    font-size: 27;
+    color: #7E60F7;
+ }
+
+ .input{
+     width: 630px;
+     height: 30px;
+     background-color: #C4C4C4;
+     opacity: 0.45;
+     border-radius: 8px;
+ }
+
+ .btn{
+     width: 170px;
+     height: 55px;
+     background-color:#6D60F7;
+     border-color:#6D60F7 ;
+     color: white;
+     font-family: Ubuntu;
+     font-size: 28;
+     border-radius: 8px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
