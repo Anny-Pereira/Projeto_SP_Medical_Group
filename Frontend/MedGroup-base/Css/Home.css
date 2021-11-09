@@ -49,7 +49,7 @@ h1{
 } 
 
 hr{
-    width: 90%;
+    width: 100%;
     border: transparent;
     border-bottom: 3px solid #6D60F7;
     border-radius: 3px;
@@ -68,6 +68,7 @@ h2{
     justify-content: space-between;
     align-items: flex-start;
     height: 40%;
+    padding-top: 10%;
 }
 
  .titulos_banner{
@@ -103,8 +104,8 @@ h2{
 }
 
 .decoracao{
-    display: flex;
-    justify-content: flex-end;
+    position: relative;
+    left: 90%;
 }
 
 .endereco{
@@ -134,12 +135,12 @@ align-items: center;
 }
 
 .borda_box{
-    width: 400px;
-    height: 260px;
+    width: 397px;
+    height: 257px;
     border-radius: 10px;
     border: 4px solid #6D60F7;
     position: absolute;
-    margin: 4px 5px;
+    margin: 5px 5px;
 }
 
 .box-endereco{

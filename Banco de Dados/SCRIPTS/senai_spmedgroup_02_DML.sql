@@ -14,6 +14,7 @@ INSERT INTO Situacao (descricao)
 VALUES ('Realizada'), ('Cancelada'), ('Agendada');
 GO
 
+--FEITO ATE AQUI
 
 --INSERT INTO Especialidade (tituloEspecialidade)
 --Através de Importação
