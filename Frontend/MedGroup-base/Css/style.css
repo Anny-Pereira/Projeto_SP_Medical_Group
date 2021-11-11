@@ -3,6 +3,11 @@
     box-sizing: 0;
  }
 
+ .container{
+    width: 80%;
+    margin: 0 auto;
+}
+
 .fundo_img_medico{
     background-image: url("../Imagens/FundoLista\ 2.png");
     height: 477px ;

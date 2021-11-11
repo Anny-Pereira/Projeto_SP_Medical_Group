@@ -31,6 +31,19 @@ namespace Senai_MedicalGroup_WebApi
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorPolicy",
+                                builder =>
+                                {
+                                    builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });
+
+
             //Adiciona serviços do Swagger - documentação
             services.AddSwaggerGen(c =>
             {
@@ -88,6 +101,9 @@ namespace Senai_MedicalGroup_WebApi
             });
 
             app.UseRouting();
+
+            app.UseCors("CorPolicy");
+
 
 
             //Autenticação

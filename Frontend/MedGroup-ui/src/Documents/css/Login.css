@@ -16,7 +16,7 @@
      background-image: url(../Imagens/img_Login\ 1.png);
      background-repeat: no-repeat;
         background-size: cover;
-     height: 100%;
+     height: 100vh;
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -61,7 +61,7 @@
     height: 344px;
     border-radius: 10px;
     position: absolute;
-    margin-top: 181px;
+    margin-top: 224px;
     margin-left: 17px;
 }
 
@@ -84,7 +84,7 @@
 
  span{
     font-family: Ubuntu;
-    font-size: 23;
+    font-size: 23px;
     color: #7E60F7;
  }
 
@@ -94,6 +94,7 @@
      background-color: #C4C4C4;
      opacity: 0.45;
      border-radius: 8px;
+     color: black;
  }
 
  .borda_btn{
