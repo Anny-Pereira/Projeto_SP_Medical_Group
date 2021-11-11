@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+
+*{ margin: 0;
+    padding: 0;
+    box-sizing: 0;
+ }
+
+ .fundo_img{
+    background-image: url("../Imagens/CadastroConsulta\ 1.png");
+    height: 195% ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+ .header{
+    font-family: Ubuntu;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 9%;
+    text-shadow: black;
+ }
+
+
+ .logo-home{
+     width:70px ;
+     height:70px ;
+ }
+
+ .espaco{
+     width: 200px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .cadastro-consulta{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 85%;
+ }
+
+ .form{
+    width: 708px;
+    height: 925px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+ }
+
+ .borda_form{
+    width: 708px;
+    height: 925px;
+    border-radius: 15px;
+    border: 4px solid #6D60F7;
+    position: absolute;
+    margin: 5px 5px;
+ }
+
+ .espacamento{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 95%;
+ }
+
+ h2{
+    font-family: Ubuntu;
+    font-weight: 500;
+    font-size: 36px;
+    color: #6D60F7;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 40px;
+ }
+
+
+ .item-form{
+     display: flex;
+     flex-direction: column;
+ }
+
+ .span{
+     color: #7E60F7;
+     font-family: Ubuntu;
+    font-weight: 500;
+    font-size: 23px;
+    margin-bottom: 10px;
+ }
+
+ .input{
+    width: 580px;
+    height: 40px;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: rgba(196, 196, 196, 0.45);
+ }
+
+ .botao{
+    margin-top: 20px;
+ }
+
+ .border_btn{
+    width: 163px;
+    height: 50px;
+    border-radius: 10px;
+    border: 4px solid #DEBFFF;
+    position: absolute;
+    margin: 4px 5px;
+ }
+
+ .btn{
+    width: 170px;
+    height: 55px;
+    background-color:#6D60F7;
+    border-color:#6D60F7 ;
+    color: white;
+    font-family: Ubuntu;
+    font-size: 23;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ .space{
+     height: 200px;;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #DEBFFF;
+ }
+
+ .icone_medico{
+    width: 120px;
+    height: 104px;
+ }
+
+.consultas{
+    background-image: url("../Imagens/FundoLista\ 2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 477px;
+}
+
+h1{
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: 70px;
+    color: #6D60F7;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lista-consultas{
+    background-color: rgba(222, 191, 255, 0.6);
+}
+
+.container-cards{
+    padding-bottom: 80px;
+}
+
+.area-busca{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 80px 0px;
+}
+
+.input_busca{
+    background-color: rgba(196, 196, 196, 0.45);
+    width: 480px;
+    height: 50px;
+    border-radius: 8px;
+    border-color: transparent;
+}
+
+.cards{
+    display: flex;
+    width: 80vw;
+    flex-wrap: wrap;
+}
+
+.item-card{
+    padding: 20px 20px;
+}
+
+.borda_consulta{
+    width: 560px;
+    height: 585px;
+    border-radius: 15px;
+    border: 4px solid #6D60F7;
+    position: absolute;
+    margin: 5px 5px;
+}
+
+.consulta{
+    width: 560px;
+    height: 585px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.titulo-icone{
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0px;
+}
+
+i{
+    font-size: 1.5em;
+}
+
+.divisao-card{
+    display: flex;
+    justify-content: space-around;
+    height: 60%;
+}
+
+.lado-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+h3{
+    color: #6D60F7;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    display: flex;
+    justify-content: center;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo{
+    color: #6D60F7;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.conteudo-consulta{
+    color: black;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+ .footer{
+    height: 100px;
+    background-color:#6D60F7 ;
+    color: white;
+    font-family: Ubuntu;
+    font-size: 19px;
+}
+
+.conteudo_footer{
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    height: 100%;
+}
+
+p{
+    width: 15%;
+}
+
+.itens-footer{
+    display: flex;
+    flex-direction: column;
+}
