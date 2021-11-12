@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 import { usuarioAutenticado, parseJwt } from '../../services/auth';
 
-import '../../Documents/css/Login.css';
-import logo from "../../Documents/Imagens/Logo 1.png";
+import '../../assets/css/Login.css';
+import logo from "../../assets/Imagens/Logo 1.png";
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            senha: '',
+            email: 'sarah@gmail.com',
+            senha: '404',
             errorMessage: '',
             isLoading: false
         };
@@ -20,6 +20,8 @@ export default class Login extends Component {
 
     efetuaLogin = (event) =>{
         event.preventDefault();
+
+        console.log("aki")
 
         this.setState({errorMessage: '', isLoading: true})
 
@@ -31,15 +33,15 @@ export default class Login extends Component {
         .then(resposta => {
             if (resposta.status === 200) {
                 console.log('O token é ' + resposta.data.token)
-                localStorage.setItem('usuario-token', resposta.data.token);
+                localStorage.setItem('usuario-login', resposta.data.token);
                 this.setState({isLoading: false})
 
 
-                let base64 = localStorage.getItem('usuario-login').split('.')[1];
+               let base64 = localStorage.getItem('usuario-login').split('.')[1];
 
                 console.log(this.props);
 
-               switch (parseJwt.role) {
+               switch (parseJwt().role) {
                    //caso ADM
                    case '1':
                     this.props.history.push('/consultasAdm');
@@ -84,9 +86,9 @@ export default class Login extends Component {
                 <main >
                     <section className="login">
                         <Link to="/"><img className="logo-login" src={logo} /> </Link >
-                        <div className="borda"></div>
+                        
                         <div className="margin container_login">
-                            <h1>Login</h1>
+                            <h1 className="h1-login">Login</h1>
                             <form className="form" onSubmit={this.efetuaLogin}>
                                 <div className="centro">
                                     <div>
@@ -125,6 +127,8 @@ export default class Login extends Component {
                             </form>
                             <p style={{ color: 'red' }} >{this.state.errorMessage}</p>
                         </div>
+
+                        <div className="borda"></div>
 
                     </section>
                 </main>

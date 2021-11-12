@@ -1,9 +1,10 @@
-import '../../Documents/css/Home.css';
+import '../../assets/css/Home.css';
+
 import { Link } from 'react-router-dom';
 
-import localizacao from"../../Documents/Imagens/pin-de-localizacao 2.png";
-import logo from "../../Documents/Imagens/Logo 1.png";
-import decoracao from "../../Documents/Imagens/icone-decoracao.png"
+import localizacao from"../../assets/Imagens/pin-de-localizacao 2.png";
+import logo from "../../assets/Imagens/Logo 1.png";
+import decoracao from "../../assets/Imagens/icone-decoracao.png"
 import Footer from '../../components/Footer/footer';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
                 <div className="titulos_banner">
                     <h1 className="h1-home">Sp Medical Group</h1>
                     <hr/>
-                    <h2>Bem vindo(a)!</h2>
+                    <h2 className="h2-home">Bem vindo(a)!</h2>
                 </div>
                 <Link to="/login" ><div className="botao-entrar">
                     <div className="borda_btn"></div>
