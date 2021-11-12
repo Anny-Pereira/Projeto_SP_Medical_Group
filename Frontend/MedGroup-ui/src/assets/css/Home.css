@@ -40,7 +40,7 @@
  }
 
  
-.h1-home{
+h1{
     font-family: Ubuntu;
     font-size: 40px;
     font-weight: bold;
@@ -96,17 +96,12 @@ h2{
     border-color:#6D60F7 ;
     color: white;
     font-family: Ubuntu;
-    font-size: 23px;
+    font-size: 23;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.botao-entrar{
-    cursor: pointer;
-}
-
 
 .decoracao{
     position: relative;
@@ -115,7 +110,7 @@ h2{
 
 .endereco{
     background-color: rgba(222, 191, 255, 0.6);
-    height: 60vh;
+    height: 65%;
 }
 
 .endereco-2{
@@ -175,15 +170,10 @@ align-items: center;
 }
 
 p{
-    width: 30%;
+    width: 15%;
 }
 
 .itens-footer{
     display: flex;
     flex-direction: column;
 }
-
-a, a:hover, a:visited, a:active {
-    /* color: inherit; */
-    text-decoration: none;
-   }

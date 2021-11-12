@@ -2,6 +2,8 @@ import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { usuarioAutenticado, parseJwt } from '../../services/auth';
+
 import '../../Documents/css/Login.css';
 import logo from "../../Documents/Imagens/Logo 1.png";
 

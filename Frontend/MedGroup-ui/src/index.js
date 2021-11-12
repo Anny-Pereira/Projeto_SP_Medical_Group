@@ -5,7 +5,8 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './Pages/Home/App.jsx';
 import NotFound from './Pages/NotFound/notFound';
-import Login from './Pages/Login/login';
+import Login from './Pages/login/login.jsx';
+import ConsultasAdm from './Pages/consultasAdm/consultasAdm';
 
 import {
   Route,
@@ -14,6 +15,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
+//Elaborar tipos de permissão
 
 const routing =(
   <Router>
@@ -21,6 +23,7 @@ const routing =(
       <Switch>
         <Route exact path="/" component={Home} ></Route>
         <Route path="/login" component={Login} ></Route>
+        <Route path="/consultasAdm" component={ConsultasAdm} ></Route>
         <Route path="/notFound" component={NotFound} ></Route>
         <Redirect to="/notFound" component={NotFound}/> {/* Redireciona para Not Found caso não encontre nenhuma rota */}
       </Switch>
