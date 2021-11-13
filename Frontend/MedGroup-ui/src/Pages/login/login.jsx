@@ -21,7 +21,7 @@ export default class Login extends Component {
     efetuaLogin = (event) =>{
         event.preventDefault();
 
-        console.log("aki")
+        console.log("api")
 
         this.setState({errorMessage: '', isLoading: true})
 
@@ -101,7 +101,7 @@ export default class Login extends Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="borda_btn"></div>
+                                   
                                     {/* <button className="btn" type="submit">Entrar</button> */}
 
                                     {
@@ -110,6 +110,7 @@ export default class Login extends Component {
                                         <button type="submit" disabled className="btn" id="btn__login">
                                             Loading...
                                         </button>
+                                        
                                     }
 
                                     {
@@ -122,6 +123,7 @@ export default class Login extends Component {
                                             Entrar
                                         </button>
                                     }
+                                     <div className="borda_btn"></div>
 
                                 </div>
                             </form>

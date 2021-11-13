@@ -5,8 +5,8 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './Pages/Home/App.jsx';
 import NotFound from './Pages/NotFound/notFound';
-import Login from './Pages/Login/login';
-import ConsultasAdm from './Pages/ConsultasAdm/consultasAdm.jsx';
+import Login from './Pages/login/login';
+import ConsultasAdm from './Pages/consultasAdm/consultasAdm' ;
 
 import {
   Route,
