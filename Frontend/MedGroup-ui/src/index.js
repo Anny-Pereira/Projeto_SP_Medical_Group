@@ -5,8 +5,13 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './Pages/Home/App.jsx';
 import NotFound from './Pages/NotFound/notFound';
+<<<<<<< HEAD
 import Login from './Pages/Login/login';
 import ConsultasAdm from './Pages/consultasAdm/consultasAdm';
+=======
+import Login from './Pages/login/login';
+import ConsultasAdm from './Pages/consultasAdm/consultasAdm' ;
+>>>>>>> fb47097c1f61627889733063ed3608243ca4beba
 
 import {
   Route,

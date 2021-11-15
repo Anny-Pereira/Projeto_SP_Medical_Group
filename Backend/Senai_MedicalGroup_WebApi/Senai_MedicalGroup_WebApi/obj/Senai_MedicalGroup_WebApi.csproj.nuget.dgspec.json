@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj",
         "packagesPath": "C:\\Users\\elilt\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\obj\\",
+=======
+    "C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj",
+        "projectName": "Senai_MedicalGroup_WebApi",
+        "projectPath": "C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj",
+        "packagesPath": "C:\\Users\\elilt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\obj\\",
+>>>>>>> fb47097c1f61627889733063ed3608243ca4beba
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elilt\\AppData\\Roaming\\NuGet\\NuGet.Config",

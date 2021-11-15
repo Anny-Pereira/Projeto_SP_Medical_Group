@@ -128,7 +128,7 @@ namespace Senai_MedicalGroup_WebApi.Repositories
 
         public List<Consulta> ListarTodos()
         {
-            return ctx.Consulta.Include(c => c.IdPacienteNavigation).Include(c => c.IdMedicoNavigation).ToList();
+            return ctx.Consulta.Include(c  => c.IdMedicoNavigation).Include(c => c.IdPacienteNavigation).Include(p => p.IdPacienteNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).ToList();
         }
     }
 }

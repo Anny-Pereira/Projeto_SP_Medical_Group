@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import logo from "../../assets/Imagens/Logo 1.png";
+import Footer from '../../components/Footer/footer';
 
 import '../../assets/css/Administrador.css';
 import '../../assets/css/style.css';
@@ -11,8 +12,7 @@ export default function ConsultasAdm(){
     // const [ nomeState, funcaoAtualiza ] = useState( valorInicial );
     const[listaPacientes, setListaPacientes] = useState([]);
     const[listaMedicos, setListaMedicos] = useState([]);
-    const[listaSituacoes, setListaSituacoes] = useState([]);
-    const[listaConsultas, buscarConsultas] = useState([]);
+    const[listaConsultas, setListaConsultas] = useState([]);
     const[idPaciente, setPaciente] = useState(0);
     const[idMedico, setMedico] = useState(0);
     const[idSituacao, setSituacao] = useState(0);
@@ -38,7 +38,7 @@ export default function ConsultasAdm(){
     //     console.log('Os states foram resetados!');
     //   };
 
-      function setListaPacientes(){
+      function listarPacientes(){
           axios('http://localhost:5000/api/Pacientes',{
             headers:{'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')}
         } )
@@ -52,7 +52,7 @@ export default function ConsultasAdm(){
       }
 
 
-      function setListaMedicos(){
+      function listarMedicos(){
           axios('http://localhost:5000/api/Medicos',{
             headers:{'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')}
         } )
@@ -66,19 +66,20 @@ export default function ConsultasAdm(){
       }
 
 
-      //não tenho requisições de situação
-      function setListaSituacoes(){
-          axios('http://localhost:5000/api/Pacientes',{
-            headers:{'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')}
-        } )
 
-        .then((resposta)=> {
-            if (resposta.status === 200) {
-                setListaPacientes(resposta.data)
-            }
+    function listarConsultas(){
+        axios('http://localhost:5000/api/Consultas', {
+            headers:{'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')}
         })
-        .catch((erro) => console.log(erro));
-      }
+        .then(resposta => {
+            if (resposta.status === 200) {
+                // console.log(resposta.data)
+                setListaConsultas( resposta.data )
+            };
+        })
+        .catch( erro => console.log(erro) );
+    }
+
 
 
       function cadastrarConsulta(evento){
@@ -87,19 +88,29 @@ export default function ConsultasAdm(){
             setIsLoadig(true);
 
             axios.post('http://localhost:5000/api/Consultas',{
-                // idPaciente: idPaciente,
-                // idMedico: idMedico,
-                // idSituacao:,
-                // dataConsulta:,
-                // descricao: descricao
+                idPaciente: idPaciente,
+                idMedico: idMedico,
+                idSituacao: idSituacao,
+                dataConsulta: dataConsulta,
+                descricao: descricao
             }, {
                 headers:{'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')}
             })
 
+            .then(resposta => {
+                if (resposta.status === 200) {
+                    listarConsultas();
+                    console.log('foi cadastrado!')
+                };
+            })
+            .catch( erro => console.log(erro) );
+
       }
 
 
+      useEffect(listarConsultas, []);
       useEffect(listarPacientes, []);
+      useEffect(listarMedicos, []);
       
 
     return(
@@ -109,7 +120,7 @@ export default function ConsultasAdm(){
                 <img className="logo-home" src={logo}/>
                 <div className="espaco">
                 <span>Contato</span>
-                <Link to="/login"><span>Entrar</span></Link>
+                <Link to="/login"><span>Sair</span></Link>
                 </div>
             </header>
             <main className="container">
@@ -137,6 +148,7 @@ export default function ConsultasAdm(){
                         <div className="item-form">
                             <span className="span">Nome do Médico:</span>
                             <select className="input" type="text"  onChange={ (campo) => setMedico(campo.target.value) } >
+                            <option value="0" selected disabled>Informe o médico:</option>
                             {listaMedicos.map((medico) => {
                     return (
                       <option
@@ -152,32 +164,36 @@ export default function ConsultasAdm(){
                         <div className="item-form">
                             <span className="span">Situação da Consulta:</span>
                             <select className="input" type="text" onChange={ (campo) => setSituacao(campo.target.value) }>
-                            {listaSituacoes.map((situacao) => {
-                    return (
-                      <option
-                        key={situacao.idSituacao}
-                        value={situacao.idSituacao}
-                      >
-                        {situacao.descricao}
-                      </option>
-                    );
-                  })}
-                            </select>
+                            <option value="0" selected disabled>Informe a situação da consulta:</option>
+                            <option value="1" selected>Realizada</option>
+                            <option value="2" selected >Cancelada</option>
+                            <option value="3" selected >Agendada</option>
+                                </select>
                         </div>
                         <div className="item-form">
                             <span className="span">Data e Hora:</span>
-                            <input className="input" type="datetime" value={dataConsulta} onChange={ (campo) => setData(campo.target.value) } />
+                            <input className="input" type="datetime" value={ dataConsulta } onChange={ (campo) => setData(campo.target.value) } />
                         </div>
                         <div className="item-form">
                             <span className="span">Descrição:</span>
                             <input className="input" type="text" value={descricao} onChange={ (campo) => setDescricao(campo.target.value) } />
                         </div>
-                        <div className="botao">
-                            <div className="border_btn"></div>
-                            <button className="btn" >Cadastrar</button>
-                            <button className="btn">Cadastrar</button>
-                            {/* <button className="btn" onClick={cadastrarConsulta}>Cadastrar</button> */}
-                        </div>
+                        {
+                            isLoading === false &&
+                            <div className="botao" onClick={cadastrarConsulta}>
+                                <div className="border_btn"></div>
+                                <button className="btn" >Cadastrar</button>
+                            </div>
+                        }
+
+                        {
+                            isLoading === true &&
+                            <div className="botao" >
+                                <div className="border_btn"></div>
+                                <button className="btn" >Loading...</button>
+                            </div>
+                        }
+                       
                     </div>
                 </div>
             </section>
@@ -204,6 +220,7 @@ export default function ConsultasAdm(){
             <div className="cards">
                {
                    listaConsultas.map((itemConsulta) => {
+                       //console.log(itemConsulta)
                        return (
                         <div className="item-card" id={itemConsulta.idConsulta}>
                         <div className="borda_consulta"></div>
@@ -237,12 +254,18 @@ export default function ConsultasAdm(){
                                 <div className="lado-card">
                                     <div className="item"> 
                                         <span className="titulo">Data</span>
-                                        <span className="conteudo-consulta">{itemConsulta.dataConsulta}</span>
+                                        {/* <span className="conteudo-consulta">{itemConsulta.dataConsulta}</span> */}
                                         {/* <span className="conteudo-consulta">{itemConsulta.dataConsulta.split('T')[0]}</span> */}
+                                        <span className="conteudo-consulta">{ Intl.DateTimeFormat("pt-BR", {
+                                                year: 'numeric', month: '2-digit', day: 'numeric',
+                                                hour: 'numeric', minute: 'numeric',
+                                                hour12: true                                                
+                                            }).format(new Date(itemConsulta.dataConsulta.split('T')[0]))}</span>
                                     </div>
                                     <div className="item">
                                         <span className="titulo">Hora</span>
-                                        <span className="conteudo-consulta">09:00</span>
+                                        {/* <span className="conteudo-consulta">09:00</span> */}
+                                        <span className="conteudo-consulta">{itemConsulta.dataConsulta.split('T')[1]}</span>
                                     </div>
                                     <div className="item">
                                         <span className="titulo">Situação</span>
@@ -260,6 +283,7 @@ export default function ConsultasAdm(){
         </div>
     </section>
    </main>
+   <Footer/>
         </div>
     )
 }
