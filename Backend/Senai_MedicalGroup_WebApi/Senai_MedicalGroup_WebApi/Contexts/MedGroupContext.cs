@@ -38,7 +38,7 @@ namespace Senai_MedicalGroup_WebApi.Contexts
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-TUQ4VJR\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
 
                 //SENAI
-                //optionsBuilder.UseSqlServer("Data Source=NOTE0113G5\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=Senai@132;");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-9K54HD5\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
 
                 //Azure
                 //optionsBuilder.UseSqlServer("Server=tcp:senai-sp-medical-group.database.windows.net,1433;Initial Catalog=SP_MEDICAL_GROUP;Persist Security Info=False;User ID=senai-manha;Password=medicalGroup132;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");

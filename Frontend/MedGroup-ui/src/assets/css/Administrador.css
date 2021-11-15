@@ -49,10 +49,11 @@
  }
 
  .form{
-    width: 708px;
+    /* width: 708px; */
     height: 925px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
+    display: flex;
  }
 
  .borda_form{
@@ -65,6 +66,8 @@
  }
 
  .espacamento{
+    z-index: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -72,7 +75,7 @@
     height: 95%;
  }
 
- h2{
+ .h2-adm{
     font-family: Ubuntu;
     font-weight: 500;
     font-size: 36px;
@@ -105,6 +108,7 @@
 
  .botao{
     margin-top: 20px;
+    cursor: pointer;
  }
 
  .border_btn{
