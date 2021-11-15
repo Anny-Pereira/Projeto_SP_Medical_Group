@@ -107,14 +107,14 @@ namespace Senai_MedicalGroup_WebApi.Repositories
         {
             Medico medico = ctx.Medicos.FirstOrDefault(m => m.IdUsuario == idUsuario);
 
-            return ctx.Consulta.Include(c => c.IdMedicoNavigation).Where(c => c.IdMedico == medico.IdMedico).ToList();
+            return ctx.Consulta.Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation).Include(p => p.IdPacienteNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).Where(c => c.IdMedico == medico.IdMedico).ToList();
         }
 
         public List<Consulta> ConsultasPaciente(int idUsuario)
         {
             Paciente paciente = ctx.Pacientes.FirstOrDefault(p=> p.IdUsuario == idUsuario);
 
-            return ctx.Consulta.Include(c => c.IdPacienteNavigation).Where(c => c.IdPaciente == paciente.IdPaciente).ToList();
+            return ctx.Consulta.Include(c => c.IdPacienteNavigation).Include(p => p.IdMedicoNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).Where(c => c.IdPaciente == paciente.IdPaciente).ToList();
         }
 
         public void Deletar(int idConsulta)

@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+import { usuarioAutenticado, parseJwt } from '../src/services/auth';
+
+
 import Home from './Pages/Home/App.jsx';
 import NotFound from './Pages/NotFound/notFound';
 import Login from './Pages/login/login';
 import ConsultasAdm from './Pages/consultasAdm/consultasAdm' ;
+import ConsultasMedico from './Pages/consultasMedico/consultasMedico';
+import ConsultasPaciente from './Pages/consultasPaciente/consultasPaciente';
 
 import {
   Route,
@@ -15,7 +20,54 @@ import {
   Switch,
 } from 'react-router-dom';
 
+
+
+
 //Elaborar tipos de permissão
+const PermissaoAdm = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '1' ? (
+        // operador spread
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+
+
+
+const PermissaoMedico = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '2' ? (
+        // operador spread
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+
+
+
+const PermissaoPaciente = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '3' ? (
+        // operador spread
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+
+
 
 const routing =(
   <Router>
@@ -23,7 +75,9 @@ const routing =(
       <Switch>
         <Route exact path="/" component={Home} ></Route>
         <Route path="/login" component={Login} ></Route>
-        <Route path="/consultasAdm" component={ConsultasAdm} ></Route>
+        <PermissaoAdm path="/consultasAdm" component={ConsultasAdm} />
+        <PermissaoMedico path="/consultasMedico" component={ConsultasMedico} />
+        <PermissaoPaciente path="/consultasPaciente" component={ConsultasPaciente} />
         <Route path="/notFound" component={NotFound} ></Route>
         <Redirect to="/notFound" component={NotFound}/> {/* Redireciona para Not Found caso não encontre nenhuma rota */}
       </Switch>

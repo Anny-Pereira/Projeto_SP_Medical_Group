@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import logo from "../../assets/Imagens/Logo 1.png";
 import Footer from '../../components/Footer/footer';
@@ -19,6 +19,7 @@ export default function ConsultasAdm(){
     const[dataConsulta, setData] = useState(new Date());
     const[descricao, setDescricao] = useState('');
     const[isLoading, setIsLoadig] = useState(false);
+    let history = useHistory();
 
     
 
@@ -27,7 +28,7 @@ export default function ConsultasAdm(){
     //FUNÇÃO ATUALIZARCAMPO 
     //FUNÇÃO LIMPAR CAMPO
     // limparCampos = () => {
-    //     this.setState({
+    //     ({
     //         idPaciente: 0,
     //         idMedico: 0,
     //         idSituacao: 0,
@@ -37,6 +38,13 @@ export default function ConsultasAdm(){
     //     });
     //     console.log('Os states foram resetados!');
     //   };
+
+
+        function logout(){
+            localStorage.removeItem('usuario-login');
+            history.push('/login');
+        }
+
 
       function listarPacientes(){
           axios('http://localhost:5000/api/Pacientes',{
@@ -50,6 +58,8 @@ export default function ConsultasAdm(){
         })
         .catch((erro) => console.log(erro));
       }
+
+
 
 
       function listarMedicos(){
@@ -98,12 +108,13 @@ export default function ConsultasAdm(){
             })
 
             .then(resposta => {
-                if (resposta.status === 200) {
+                if (resposta.status === 201) {
+                    setIsLoadig(false);
                     listarConsultas();
-                    console.log('foi cadastrado!')
+                    //console.log('Cadastro realizado com sucesso!')
                 };
             })
-            .catch( erro => console.log(erro) );
+            .catch( erro => console.log(erro) , setIsLoadig(false));
 
       }
 
@@ -117,10 +128,10 @@ export default function ConsultasAdm(){
         <div>
         <section className="fundo_img">
             <header className="header container">
-                <img className="logo-home" src={logo}/>
+                <Link to="/login" onClick={logout}><img className="logo-home" src={logo}/></Link>
                 <div className="espaco">
                 <span>Contato</span>
-                <Link to="/login"><span>Sair</span></Link>
+                <button onClick={logout}>Sair</button>
                 </div>
             </header>
             <main className="container">
@@ -165,14 +176,14 @@ export default function ConsultasAdm(){
                             <span className="span">Situação da Consulta:</span>
                             <select className="input" type="text" onChange={ (campo) => setSituacao(campo.target.value) }>
                             <option value="0" selected disabled>Informe a situação da consulta:</option>
-                            <option value="1" selected>Realizada</option>
-                            <option value="2" selected >Cancelada</option>
-                            <option value="3" selected >Agendada</option>
+                            <option value="1" >Realizada</option>
+                            <option value="2"  >Cancelada</option>
+                            <option value="3"  >Agendada</option>
                                 </select>
                         </div>
                         <div className="item-form">
                             <span className="span">Data e Hora:</span>
-                            <input className="input" type="datetime" value={ dataConsulta } onChange={ (campo) => setData(campo.target.value) } />
+                            <input className="input" type="datetime-local" value={ dataConsulta } onChange={ (campo) => setData(campo.target.value) } />
                         </div>
                         <div className="item-form">
                             <span className="span">Descrição:</span>
@@ -184,6 +195,7 @@ export default function ConsultasAdm(){
                                 <div className="border_btn"></div>
                                 <button className="btn" >Cadastrar</button>
                             </div>
+                            //mensagem
                         }
 
                         {
@@ -243,6 +255,10 @@ export default function ConsultasAdm(){
                                         <span className="conteudo-consulta">{itemConsulta.idMedicoNavigation.nomeMedico}</span>
                                     </div>
                                     <div className="item">
+                                    <span className="titulo">Especialidade</span>
+                                    <span className="conteudo-consulta">{itemConsulta.idMedicoNavigation.idEspecialidadeNavigation.tituloEspecialidade}</span>
+                                </div>
+                                    <div className="item">
                                         <span className="titulo">Clínica</span>
                                         <span className="conteudo-consulta">{itemConsulta.idPacienteNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
                                     </div>
@@ -257,15 +273,16 @@ export default function ConsultasAdm(){
                                         {/* <span className="conteudo-consulta">{itemConsulta.dataConsulta}</span> */}
                                         {/* <span className="conteudo-consulta">{itemConsulta.dataConsulta.split('T')[0]}</span> */}
                                         <span className="conteudo-consulta">{ Intl.DateTimeFormat("pt-BR", {
-                                                year: 'numeric', month: '2-digit', day: 'numeric',
-                                                hour: 'numeric', minute: 'numeric',
-                                                hour12: true                                                
-                                            }).format(new Date(itemConsulta.dataConsulta.split('T')[0]))}</span>
+                                                year: 'numeric', month: '2-digit', day: 'numeric',                                              
+                                            }).format(new Date(itemConsulta.dataConsulta))}</span>
                                     </div>
                                     <div className="item">
                                         <span className="titulo">Hora</span>
                                         {/* <span className="conteudo-consulta">09:00</span> */}
-                                        <span className="conteudo-consulta">{itemConsulta.dataConsulta.split('T')[1]}</span>
+                                        <span className="conteudo-consulta">{ Intl.DateTimeFormat("pt-BR", {
+                                                hour: 'numeric', minute: 'numeric',
+                                                hour12: true                                                
+                                            }).format(new Date(itemConsulta.dataConsulta))}</span>
                                     </div>
                                     <div className="item">
                                         <span className="titulo">Situação</span>

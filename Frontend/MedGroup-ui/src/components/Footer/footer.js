@@ -6,11 +6,11 @@ import  {Link}  from 'react-router-dom';
 export default function Footer() {
 
     return (
-        <footer class="footer">
-        <div class="container conteudo_footer">
+        <footer className="footer">
+        <div className="container conteudo_footer">
             <p>Copyright © 2020 Escola Senai de Informática</p>
-            <Link to="/"><img class="logo-home" src={logo} /></Link>
-            <nav class="itens-footer">
+            <Link to="/"><img className="logo-home" src={logo} /></Link>
+            <nav className="itens-footer">
                 <span>Contato</span>
                 <span>Endereço</span>
                 <span>Serviços</span>
