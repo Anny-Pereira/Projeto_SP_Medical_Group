@@ -8,10 +8,10 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 
 import Home from './Pages/Home/App.jsx';
 import NotFound from './Pages/NotFound/notFound';
-import Login from './Pages/login/login';
-import ConsultasAdm from './Pages/consultasAdm/consultasAdm';
-import ConsultasMedico from './Pages/consultasMedico/consultasMedico';
-import ConsultasPaciente from './Pages/consultasPaciente/consultasPaciente';
+import Login from './Pages/Login/login';
+import ConsultasAdm from './Pages/ConsultasAdm/consultasAdm';
+import ConsultasMedico from './Pages/ConsultasMedico/consultasMedico';
+import ConsultasPaciente from './Pages/ConsultasPaciente/consultasPaciente';
 
 import {
   Route,

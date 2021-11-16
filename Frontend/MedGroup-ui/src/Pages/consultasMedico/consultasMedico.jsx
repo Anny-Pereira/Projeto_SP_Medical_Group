@@ -8,9 +8,36 @@ import Footer from '../../components/Footer/footer';
 import '../../assets/css/Administrador.css';
 import '../../assets/css/style.css';
 
+
+
+// import Button from '@mui/material/Button';
+// import Box from '@mui/material/Box';
+// import Modal from '@mui/material/Modal';
+
+//  const style = {
+//     position: 'absolute',
+//     top: '50%',
+//     left: '50%',
+//     transform: 'translate(-50%, -50%)',
+//     width: 400,
+//     bgcolor: 'background.paper',
+//     border: '2px solid #000',
+//     boxShadow: 24,
+//     p: 4,
+//   };
+
+
 export default function ConsultasMedico(){
     const[listaConsultas, setListaConsultas] = useState([]);
+    const[loadFuncao, setLoad] = useState(false);
     let history = useHistory();
+
+
+    //  //function BasicModal()
+    //  const [open, setOpen] = React.useState(false);
+    //  const handleOpen = () => setOpen(true);
+    //  const handleClose = () => setOpen(false);
+ 
 
 
     function logout(){
@@ -30,6 +57,21 @@ export default function ConsultasMedico(){
         })
         .catch( erro => console.log(erro) );
     }
+
+    // function addDescricao(consulta){
+    //     axios.patch('http://localhost:5000/api/Consultas/descricao/' + consulta.idConsulta,{
+    //         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
+    //     })
+    //     .then(resposta => {
+    //         if (resposta.status === 200) {
+    //             // console.log()
+    //             setMes( 'A consulta selecionada foi excluída! Clique fora da tela para sair e recarregue a página.');
+    //           }
+    //           buscarMInhasConsultas;
+    //     })
+    //     .catch(erro => console.log(erro), setMes(''))
+
+    // }
 
 
     useEffect(buscarMInhasConsultas, []);
@@ -71,8 +113,28 @@ export default function ConsultasMedico(){
                             <span></span>
                             <h3>Atendimento</h3>
                             <div>
-                            {/* <FontAwesomeIcon icon={faCoffee} /> */}
-                            <i className="fas fa-ellipsis-v"></i>
+                            {/* <i className="fas fa-ellipsis-v"></i> */}
+                             {/* <i className="fas fa-ellipsis-v"></i> */}
+                                                        {/* <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" /> */}
+{/* 
+                                                        <Button onClick={handleOpen}>
+                                                            <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" />
+                                                        </Button>
+
+                                                        <Modal
+                                                            open={open}
+                                                            onClose={handleClose}
+                                                            aria-labelledby="modal-modal-title"
+                                                            aria-describedby="modal-modal-description"
+                                                            
+                                                        >
+                                                            <Box sx={style}>
+                                                               <div>
+                                                                   <button className="botao-icone-ellipsis" onClick={addDescricao()} >Adicionar Descrição</button>
+                                                                   <p style={{ color: '#6D60F7', margin: '10px 0px'}} >{Message}</p>
+                                                               </div>
+                                                            </Box>
+                                                        </Modal> */}
                             </div>
                         </div>
                         <div className="divisao-card">

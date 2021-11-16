@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 import logo from "../../assets/Imagens/Logo 1.png";
 import icone from "../../assets/Imagens/caixa-medica 1.png"
@@ -8,6 +10,23 @@ import Footer from '../../components/Footer/footer';
 
 import '../../assets/css/Administrador.css';
 import '../../assets/css/style.css';
+
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+
+ const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
 
 export default function ConsultasAdm() {
     // const [ nomeState, funcaoAtualiza ] = useState( valorInicial );
@@ -20,25 +39,29 @@ export default function ConsultasAdm() {
     const [dataConsulta, setData] = useState(new Date());
     const [descricao, setDescricao] = useState('');
     const [isLoading, setIsLoadig] = useState(false);
+    const [Message, setMes] = useState('');
     let history = useHistory();
 
 
+    //function BasicModal()
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     //FUNÇÃO BUSCARCONSULTAS
     //FUNÇÃO CADASTRARCONSULTAS
     //FUNÇÃO ATUALIZARCAMPO 
     //FUNÇÃO LIMPAR CAMPO
-    // limparCampos = () => {
-    //     ({
-    //         idPaciente: 0,
-    //         idMedico: 0,
-    //         idSituacao: 0,
-    //         dataConsulta: new Date(),
-    //         descricao: '',
-    //         isLoading: false
-    //     });
-    //     console.log('Os states foram resetados!');
+    // function limparCampos(){
+        // setPaciente(0)
+        // setMedico(0)
+        // setSituacao(0),
+        // setData(new Date()),
+        // setDescricao(''),
+        // setIsLoadig(false)
+        // console.log('Os states foram resetados!');
     //   };
+
 
 
     function logout() {
@@ -87,6 +110,7 @@ export default function ConsultasAdm() {
                     // console.log(resposta.data)
                     setListaConsultas(resposta.data)
                 };
+                setMes('');
             })
             .catch(erro => console.log(erro));
     }
@@ -109,14 +133,41 @@ export default function ConsultasAdm() {
         })
 
             .then(resposta => {
-                if (resposta.status === 201) {
+                if (resposta.status === 201) {                    
+                    // limparCampos();
+                    setPaciente(0)
+                    setMedico(0);
+                    setSituacao(0);
+                    setData(new Date());
+                    setDescricao('');
                     setIsLoadig(false);
-                    listarConsultas();
+                    console.log('Os states foram resetados!');
+                    
                     //console.log('Cadastro realizado com sucesso!')
+
+
+                    listarConsultas();
                 };
             })
             .catch(erro => console.log(erro), setIsLoadig(false));
 
+    }
+
+
+    function excluirConsulta(consulta){
+        //console.log(consulta)
+        //console.log(consulta.idConsulta)
+        axios.delete('http://localhost:5000/api/Consultas/' + consulta.idConsulta ,{
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
+        })
+            .then(resposta => {
+                if (resposta.status === 204) {
+                    // console.log(
+                    setMes( 'A consulta selecionada foi excluída! Clique fora da tela para sair e recarregue a página.');
+                  }
+                  listarConsultas();
+            })
+            .catch(erro => console.log(erro), setMes(''))
     }
 
 
@@ -244,7 +295,27 @@ export default function ConsultasAdm() {
                                                     <span></span>
                                                     <h3>Atendimento</h3>
                                                     <div>
-                                                        <i className="fas fa-ellipsis-v"></i>
+                                                        {/* <i className="fas fa-ellipsis-v"></i> */}
+                                                        {/* <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" /> */}
+
+                                                        <Button onClick={handleOpen}>
+                                                            <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" />
+                                                        </Button>
+
+                                                        <Modal
+                                                            open={open}
+                                                            onClose={handleClose}
+                                                            aria-labelledby="modal-modal-title"
+                                                            aria-describedby="modal-modal-description"
+                                                            
+                                                        >
+                                                            <Box sx={style}>
+                                                               <div>
+                                                                   <button className="botao-icone-ellipsis" onClick={() => excluirConsulta(itemConsulta)} >Excluir</button>
+                                                                   <p style={{ color: '#6D60F7', margin: '10px 0px'}} >{Message}</p>
+                                                               </div>
+                                                            </Box>
+                                                        </Modal>
                                                     </div>
                                                 </div>
                                                 <div className="divisao-card">

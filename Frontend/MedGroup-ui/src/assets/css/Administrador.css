@@ -68,6 +68,7 @@
  .botao-sair{
     background-color: transparent;
     border: transparent;
+    cursor: pointer;
  }
 
  .espacamento{
@@ -160,7 +161,9 @@
     background-image: url("../Imagens/FundoLista\ 2.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 60vh;
+    display: flex;
+    align-items: center;
 }
 
 .h1-consulta{

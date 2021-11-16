@@ -72,7 +72,7 @@ export default function ConsultasPaciente(){
                             <h3>Atendimento</h3>
                             <div>
                             {/* <FontAwesomeIcon icon={faCoffee} /> */}
-                            <i className="fas fa-ellipsis-v"></i>
+                            {/* <i className="fas fa-ellipsis-v"></i> */}
                             </div>
                         </div>
                         <div className="divisao-card">
