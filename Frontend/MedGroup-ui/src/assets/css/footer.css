@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+
+*{ margin: 0;
+    padding: 0;
+    box-sizing: 0;
+ }
+
+ .container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+ .logo-home{
+    width:70px ;
+    height:70px ;
+}
+
+ .footer{
+    height: 100px;
+    background-color:#6D60F7 ;
+    color: white;
+    font-family: Ubuntu;
+    font-size: 19px;
+}
+
+.conteudo_footer{
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    height: 100%;
+}
+
+.p-footer{
+    width: 15%;
+}
+
+.span-footer{
+    font-family: Ubuntu;
+    color: white;
+    font-size: 20px;
+}
+
+.itens-footer{
+    display: flex;
+    flex-direction: column;
+}

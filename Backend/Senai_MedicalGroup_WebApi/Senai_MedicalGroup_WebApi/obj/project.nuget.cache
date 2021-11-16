@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "QEyH2qOBik0BLfjttlduc4KL2f+J/aTZWIiDqu2u5KdowK23d6hNgG3rpxgM+x34+b5W2/9xxyhZMpolZK5HJg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj",
-=======
   "dgSpecHash": "LW2J5xf65U/sThELE/NqKiJQiOCtU7SKRZtLZf8LjIrhZzNoDWUy39bud6lxZ4RAH/IqFHUQJX3BdlBUKbggBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi.csproj",
->>>>>>> fb47097c1f61627889733063ed3608243ca4beba
   "expectedPackageFiles": [
     "C:\\Users\\elilt\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\elilt\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.10\\microsoft.aspnetcore.authentication.jwtbearer.5.0.10.nupkg.sha512",
@@ -151,5 +145,12 @@
     "C:\\Users\\elilt\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\elilt\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\elilt\\OneDrive\\Área de Trabalho\\Projeto_SP_Medical_Group\\Backend\\Senai_MedicalGroup_WebApi\\Senai_MedicalGroup_WebApi\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

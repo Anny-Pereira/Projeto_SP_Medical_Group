@@ -14,8 +14,8 @@ function App() {
         <header className="header container">
             <img className="logo-home" src={logo} />
             <div className="espaco">
-                <span>Contato</span>
-                <Link to="/login"><span>Entrar</span></Link>
+                <span className="span-header">Contato</span>
+                <Link to="/login"><span className="span-header">Entrar</span></Link>
             </div>
         </header>
         <main className="container">
@@ -27,7 +27,7 @@ function App() {
                 </div>
                 <Link to="/login" ><div className="botao-entrar">
                     <div className="borda_btn"></div>
-                   <button className="btn"  >Entrar</button>
+                   <button className="btn-home"  >Entrar</button>
                 </div> </Link>
             </section>
             <img className="decoracao" src={decoracao} />

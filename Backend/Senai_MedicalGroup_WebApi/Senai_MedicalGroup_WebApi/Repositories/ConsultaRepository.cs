@@ -114,7 +114,7 @@ namespace Senai_MedicalGroup_WebApi.Repositories
         {
             Paciente paciente = ctx.Pacientes.FirstOrDefault(p=> p.IdUsuario == idUsuario);
 
-            return ctx.Consulta.Include(c => c.IdPacienteNavigation).Include(p => p.IdMedicoNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).Where(c => c.IdPaciente == paciente.IdPaciente).ToList();
+            return ctx.Consulta.Include(c => c.IdPacienteNavigation).Include(p => p.IdMedicoNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation).Where(c => c.IdPaciente == paciente.IdPaciente).ToList();
         }
 
         public void Deletar(int idConsulta)
@@ -128,7 +128,7 @@ namespace Senai_MedicalGroup_WebApi.Repositories
 
         public List<Consulta> ListarTodos()
         {
-            return ctx.Consulta.Include(c  => c.IdMedicoNavigation).Include(c => c.IdPacienteNavigation).Include(p => p.IdPacienteNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).ToList();
+            return ctx.Consulta.Include(c  => c.IdMedicoNavigation.IdEspecialidadeNavigation).Include(c => c.IdPacienteNavigation).Include(p => p.IdPacienteNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).ToList();
         }
     }
 }

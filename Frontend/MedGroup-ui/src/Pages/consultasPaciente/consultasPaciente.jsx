@@ -42,14 +42,14 @@ export default function ConsultasPaciente(){
         <header className="header container">
         <Link to="/login" onClick={logout}><img className="logo-home" src={logo}/></Link>
             <div className="espaco">
-                <span>Contato</span>
-                <button onClick={logout}>Sair</button>
+                <span  className="span-header ">Contato</span>
+                <button onClick={logout}  className="span-header botao-sair">Sair</button>
             </div>
         </header>
         <div className="container">
             <section>
                 <div className="container">
-                    <h1>Minhas Consultas</h1>
+                    <h1 className="h1-consulta">Minhas Consultas</h1>
                 </div>
             </section>
             </div>
@@ -91,7 +91,7 @@ export default function ConsultasPaciente(){
                                 </div>
                                 <div className="item">
                                     <span className="titulo">Clínica</span>
-                                    <span className="conteudo-consulta">{consulta.idPacienteNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
+                                    <span className="conteudo-consulta">{consulta.idMedicoNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
                                 </div>
                                 <div className="item">
                                     <span className="titulo">Descrição</span>

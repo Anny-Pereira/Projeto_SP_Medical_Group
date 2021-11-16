@@ -89,25 +89,25 @@ export default class Login extends Component {
                         
                         <div className="margin container_login">
                             <h1 className="h1-login">Login</h1>
-                            <form className="form" onSubmit={this.efetuaLogin}>
+                            <form className="form-login" onSubmit={this.efetuaLogin}>
                                 <div className="centro">
                                     <div>
-                                        <span>Email:</span>
-                                        <input type="email" name="email" value={this.state.email} onChange={this.atualizaStateCampo} className="input" />
+                                        <span className="span-login">Email:</span>
+                                        <input className="input-login" type="email" name="email" value={this.state.email} onChange={this.atualizaStateCampo} className="input" />
                                     </div>
                                     <div>
-                                        <span>Senha:</span>
-                                        <input type="password" name="senha" value={this.state.senha} onChange={this.atualizaStateCampo} className="input" />
+                                        <span className="span-login">Senha:</span>
+                                        <input  className="input-login" type="password" name="senha" value={this.state.senha} onChange={this.atualizaStateCampo} className="input" />
                                     </div>
                                 </div>
-                                <div>
+                                <div className="botao-login">
                                    
                                     {/* <button className="btn" type="submit">Entrar</button> */}
 
                                     {
                                         // Caso seja true, renderiza o botão desabilitado com o texto 'Loading...'
                                         this.state.isLoading === true &&
-                                        <button type="submit" disabled className="btn" id="btn__login">
+                                        <button type="submit" disabled className="btn-login" id="btn__login">
                                             Loading...
                                         </button>
                                         
@@ -117,7 +117,7 @@ export default class Login extends Component {
                                         // Caso seja false, renderiza o botão habilitado com o texto 'Login'
                                         this.state.isLoading === false &&
                                         <button
-                                            className="btn" id="btn__login"
+                                            className="btn-login" id="btn__login"
                                             type="submit"
                                             disabled={this.state.email === '' || this.state.senha === '' ? 'none' : ''}>
                                             Entrar
@@ -127,7 +127,7 @@ export default class Login extends Component {
 
                                 </div>
                             </form>
-                            <p style={{ color: 'red' }} >{this.state.errorMessage}</p>
+                            <p style={{ color: 'red', margin: '10px 0px'}} >{this.state.errorMessage}</p>
                         </div>
 
                         <div className="borda"></div>
