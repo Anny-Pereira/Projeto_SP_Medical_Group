@@ -19,6 +19,8 @@
 
 .icone-ellipsis {
     font-size: 1.3em;
+    border: transparent;
+    background-color: transparent;
 }
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
@@ -33,4 +35,11 @@
     background-color: transparent;
     font-size: 20px;
     cursor: pointer;
+}
+
+
+.consultas-med{
+    height: 70%;
+    display: flex;
+    align-items: center;
 }

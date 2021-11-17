@@ -46,18 +46,16 @@ export default function ConsultasPaciente(){
                 <button onClick={logout}  className="span-header botao-sair">Sair</button>
             </div>
         </header>
-        <div className="container">
-            <section>
-                <div className="container">
-                    <h1 className="h1-consulta">Minhas Consultas</h1>
-                </div>
-            </section>
-            </div>
+        <section className="consultas-med">
+                        <div className="container">
+                            <h1 className="h1-consulta">Minhas Consultas</h1>
+                        </div>
+        </section>
     </section>
     </main>
     <main>
     <section className="lista-consultas">
-        <div className=" container-cards">
+        <div className=" container-cards-2">
             <div className="container cards-style">
 
                 <div className="cards">

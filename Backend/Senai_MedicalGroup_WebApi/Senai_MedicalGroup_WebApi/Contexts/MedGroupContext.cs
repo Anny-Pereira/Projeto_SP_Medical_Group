@@ -35,10 +35,10 @@ namespace Senai_MedicalGroup_WebApi.Contexts
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
 
                 //CASA
-                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-TUQ4VJR\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-TUQ4VJR\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
 
                 //SENAI
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-9K54HD5\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
+                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-9K54HD5\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=senai@132;");
 
                 //Azure
                 //optionsBuilder.UseSqlServer("Server=tcp:senai-sp-medical-group.database.windows.net,1433;Initial Catalog=SP_MEDICAL_GROUP;Persist Security Info=False;User ID=senai-manha;Password=medicalGroup132;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
