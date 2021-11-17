@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
 
 import logo from "../../assets/Imagens/Logo 1.png";
@@ -12,11 +15,33 @@ import Footer from '../../components/Footer/footer';
 import '../../assets/css/Administrador.css';
 import '../../assets/css/style.css';
 
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+
 export default function ConsultasMedico() {
     const [listaConsultas, setListaConsultas] = useState([]);
-    const [loadFuncao, setLoad] = useState(false);
     const [descricao, setDescricao] = useState('');
+    const [idDescricaoAlterada, setidDescricaoAlterada] = useState(0);
     let history = useHistory();
+
+
+
+     //function BasicModal()
+     const [open, setOpen] = React.useState(false);
+     const handleOpen = () => setOpen(true);
+     const handleClose = () => setOpen(false);
+ 
 
 
 
@@ -49,9 +74,9 @@ export default function ConsultasMedico() {
             .then(resposta => {
                 if (resposta.status === 200) {
                     console.log('A descrição foi alterada!');
-
+                    setidDescricaoAlterada(consulta.idClinicaNavigation)
                 }
-                buscarMInhasConsultas();
+                // buscarMInhasConsultas();
             })
             .catch(erro => console.log(erro))
 
@@ -68,15 +93,15 @@ export default function ConsultasMedico() {
                     <header className="header container">
                         <Link to="/login" onClick={logout}><img className="logo-home" src={logo} /></Link>
                         <div className="espaco">
-                            <span  className="span-header">Contato</span>
-                            <button  className="span-header botao-sair" onClick={logout}>Sair</button>
+                            <span className="span-header">Contato</span>
+                            <button className="span-header botao-sair" onClick={logout}>Sair</button>
                         </div>
                     </header>
                     <section className="consultas-med">
                         <div className="container">
                             <h1 className="h1-consulta">Minhas Consultas</h1>
                         </div>
-                </section>
+                    </section>
                 </section>
             </main>
             <main>
@@ -95,18 +120,16 @@ export default function ConsultasMedico() {
                                                         <span></span>
                                                         <h3>Atendimento</h3>
                                                         <div>
-                                                            <button className="botao-icone-ellipsis" onClick={addDescricao}>
+                                                            {/* <button className="botao-icone-ellipsis" onClick={addDescricao}>
                                                                 <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
-                                                            </button>
-
+                                                            </button> */}
+                                                            <Button onClick={addDescricao, handleOpen}>
+                                                                <FontAwesomeIcon icon={faPen}  className="icone-ellipsis" />
+                                                            </Button>
 
                                                             {/* <i className="fas fa-ellipsis-v"></i> */}
                                                             {/* <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" /> */}
-                                                            {/* 
-                                                        <Button onClick={handleOpen}>
-                                                            <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" />
-                                                        </Button>
-
+                                            
                                                         <Modal
                                                             open={open}
                                                             onClose={handleClose}
@@ -116,10 +139,10 @@ export default function ConsultasMedico() {
                                                         >
                                                             <Box sx={style}>
                                                                <div>
-                                                                   <button className="botao-icone-ellipsis" onClick={addDescricao(consulta)} >Adicionar Descrição</button>
+                                                                   <button className="botao-icone-ellipsis" onClick={() => addDescricao(consulta)} >Adicionar Descrição</button>
                                                                </div>
                                                             </Box>
-                                                        </Modal> */}
+                                                        </Modal>
                                                         </div>
                                                     </div>
                                                     <div className="divisao-card">
@@ -143,11 +166,14 @@ export default function ConsultasMedico() {
                                                             <div className="item">
                                                                 <span className="titulo">Descrição</span>
                                                                 <span className="conteudo-consulta">{consulta.descricao}</span>
-                                                                <div>
-                                                                    <form>
-                                                                        <input value={descricao} onChange={(campo) => setDescricao(campo.target.value)} />
-                                                                    </form>
-                                                                </div>
+                                                                {idDescricaoAlterada !== 0 && (
+                                                                   <div>
+                                                                   <form>
+                                                                       <input value={descricao} onChange={(campo) => setDescricao(campo.target.value)} />
+                                                                   </form>
+                                                               </div>
+                                                                )}
+                                                                
                                                             </div>
                                                         </div>
                                                         <div className="lado-card">

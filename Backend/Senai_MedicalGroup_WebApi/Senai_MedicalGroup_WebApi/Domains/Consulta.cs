@@ -12,7 +12,7 @@ namespace Senai_MedicalGroup_WebApi.Domains
         public int? IdPaciente { get; set; }
 
 
-        [Required(ErrorMessage ="É necessário informar o médico da consulta!")]
+        //[Required(ErrorMessage ="É necessário informar o médico da consulta!")]
         public int? IdMedico { get; set; }
         public int? IdSituacao { get; set; }
 

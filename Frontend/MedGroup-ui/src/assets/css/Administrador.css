@@ -113,6 +113,12 @@
     background-color: rgba(196, 196, 196, 0.45);
  }
 
+.input-descricao{
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: rgba(196, 196, 196, 0.45);
+}
+
  .botao{
     margin-top: 20px;
     cursor: pointer;
