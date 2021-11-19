@@ -89,13 +89,13 @@ export default function ConsultasMedico() {
                                     listaConsultas.map((consulta) => {
                                         return (
                                             <div className="item-card" id={consulta.idConsulta}>
-                                                <div className="borda_consulta"></div>
+                                               
                                                 <article className="consulta">
                                                     <div className="titulo-icone">
                                                         <span></span>
                                                         <h3>Atendimento</h3>
-                                                        <div>
-                                                            <button className="botao-icone-ellipsis" onClick={addDescricao}>
+                                                        <div >
+                                                            <button className="botao-icone-ellipsis" onClick={addDescricao} >
                                                                 <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
                                                             </button>
 
@@ -171,6 +171,7 @@ export default function ConsultasMedico() {
                                                         </div>
                                                     </div>
                                                 </article>
+                                                <div className="borda_consulta"></div>
                                             </div>
                                         )
                                     })

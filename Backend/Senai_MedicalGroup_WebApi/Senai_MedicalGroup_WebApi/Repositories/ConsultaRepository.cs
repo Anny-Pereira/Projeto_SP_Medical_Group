@@ -103,9 +103,9 @@ namespace Senai_MedicalGroup_WebApi.Repositories
 
 
     
-        public List<Consulta> ConsultasMedico(int idUsuario)
+        public List<Consulta> ConsultasMedico(int idMedico)
         {
-            Medico medico = ctx.Medicos.FirstOrDefault(m => m.IdUsuario == idUsuario);
+            Medico medico = ctx.Medicos.FirstOrDefault(m => m.IdMedico == idMedico);
 
             return ctx.Consulta.Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation).Include(p => p.IdPacienteNavigation.IdUsuarioNavigation.IdClinicaNavigation).Include(c => c.IdSituacaoNavigation).Where(c => c.IdMedico == medico.IdMedico).ToList();
         }
