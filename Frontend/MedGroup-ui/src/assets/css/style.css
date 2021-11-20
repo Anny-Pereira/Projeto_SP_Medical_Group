@@ -43,3 +43,16 @@
     display: flex;
     align-items: center;
 }
+
+.add-descricao-btn{
+    font-size: 20px;
+    color: #6D60F7;
+    font-family: Ubuntu;
+    border: transparent;
+    background-color: transparent;
+}
+
+.space-modal-descricao{
+    display: flex;
+    justify-content: space-around;
+}

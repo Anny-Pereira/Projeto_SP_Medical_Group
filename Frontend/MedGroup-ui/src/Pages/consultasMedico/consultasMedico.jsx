@@ -26,7 +26,7 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-  };
+};
 
 
 export default function ConsultasMedico() {
@@ -37,11 +37,11 @@ export default function ConsultasMedico() {
 
 
 
-     //function BasicModal()
-     const [open, setOpen] = React.useState(false);
-     const handleOpen = () => setOpen(true);
-     const handleClose = () => setOpen(false);
- 
+    //function BasicModal()
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
 
 
 
@@ -67,16 +67,17 @@ export default function ConsultasMedico() {
         console.log(consulta)
         console.log('Vamos editar!')
         axios.patch('http://localhost:5000/api/Consultas/descricao/' + consulta.idConsulta, {
-            descricao: descricao
+            Descricao: descricao
         }, {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
         })
             .then(resposta => {
                 if (resposta.status === 200) {
                     console.log('A descrição foi alterada!');
-                    setidDescricaoAlterada(consulta.idClinicaNavigation)
+                    setDescricao(resposta.data);
+                    setidDescricaoAlterada(consulta.idConsulta)
                 }
-                // buscarMInhasConsultas();
+                buscarMInhasConsultas();
             })
             .catch(erro => console.log(erro))
 
@@ -114,40 +115,53 @@ export default function ConsultasMedico() {
                                     listaConsultas.map((consulta) => {
                                         return (
                                             <div className="item-card" id={consulta.idConsulta}>
-                                               
+                                                 <div className="borda_consulta"></div>
                                                 <article className="consulta">
                                                     <div className="titulo-icone">
                                                         <span></span>
                                                         <h3>Atendimento</h3>
-<<<<<<< HEAD
                                                         <div >
-                                                            <button className="botao-icone-ellipsis" onClick={addDescricao} >
-=======
-                                                        <div>
-                                                            {/* <button className="botao-icone-ellipsis" onClick={addDescricao}>
->>>>>>> 6bb09e3913a368126d36ead3b88f9c16b731073d
+                                                            {/* <button value={descricao} className="botao-icone-ellipsis" onClick={() => addDescricao(consulta)} >
                                                                 <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
-                                                            </button> */}
-                                                            <Button onClick={addDescricao, handleOpen}>
-                                                                <FontAwesomeIcon icon={faPen}  className="icone-ellipsis" />
+                                                            </button>  */}
+                                                            <Button onClick={handleOpen}>
+                                                                <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
                                                             </Button>
 
                                                             {/* <i className="fas fa-ellipsis-v"></i> */}
                                                             {/* <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" /> */}
-                                            
-                                                        <Modal
-                                                            open={open}
-                                                            onClose={handleClose}
-                                                            aria-labelledby="modal-modal-title"
-                                                            aria-describedby="modal-modal-description"
-                                                            
-                                                        >
-                                                            <Box sx={style}>
-                                                               <div>
-                                                                   <button className="botao-icone-ellipsis" onClick={() => addDescricao(consulta)} >Adicionar Descrição</button>
-                                                               </div>
-                                                            </Box>
-                                                        </Modal>
+
+                                                            <Modal
+                                                                open={open}
+                                                                onClose={handleClose}
+                                                                aria-labelledby="modal-modal-title"
+                                                                aria-describedby="modal-modal-description"
+
+                                                            >
+                                                                <Box sx={style}>
+                                                                    <div>
+                                                                   
+                                                                    <div className="space-modal-descricao">
+                                                                        <form>
+                                                                            <input type="text" value={descricao} onChange={(campo) => setDescricao(campo.target.value)} />
+                                                                        </form>
+                                                                        <button
+                                                                            type="submit"
+                                                                            className="add-descricao-btn"
+                                                                            disabled={descricao === '' ? 'none' : ''}
+                                                                            onClick={addDescricao(consulta)}
+                                                                        >
+                                                                            {idDescricaoAlterada === 0
+                                                                                ? 'Salvar'
+                                                                                : 'Atualizar'}
+                                                                            
+                                                                        </button>
+                                                                    </div>
+                                                                
+
+                                                                    </div>
+                                                                </Box>
+                                                            </Modal>
                                                         </div>
                                                     </div>
                                                     <div className="divisao-card">
@@ -171,13 +185,6 @@ export default function ConsultasMedico() {
                                                             <div className="item">
                                                                 <span className="titulo">Descrição</span>
                                                                 <span className="conteudo-consulta">{consulta.descricao}</span>
-                                                                {idDescricaoAlterada !== 0 && (
-                                                                   <div>
-                                                                   <form>
-                                                                       <input value={descricao} onChange={(campo) => setDescricao(campo.target.value)} />
-                                                                   </form>
-                                                               </div>
-                                                                )}
                                                                 
                                                             </div>
                                                         </div>
@@ -202,8 +209,9 @@ export default function ConsultasMedico() {
                                                         </div>
                                                     </div>
                                                 </article>
-                                                <div className="borda_consulta"></div>
+                                               
                                             </div>
+                                            
                                         )
                                     })
                                 }
