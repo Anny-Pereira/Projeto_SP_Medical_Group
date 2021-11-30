@@ -32,7 +32,9 @@ const style = {
 export default function ConsultasMedico() {
     const [listaConsultas, setListaConsultas] = useState([]);
     const [descricao, setDescricao] = useState('');
-    const [idDescricaoAlterada, setidDescricaoAlterada] = useState(0);
+    const [id_atual, setIDAtual] = useState(0);
+  
+    //const [idDescricaoAlterada, setidDescricaoAlterada] = useState(0);
     let history = useHistory();
 
 
@@ -43,6 +45,19 @@ export default function ConsultasMedico() {
     const handleClose = () => setOpen(false);
 
 
+
+
+    function abrirModal(id){
+
+
+        console.log(id);
+        setIDAtual(id);
+
+
+        handleOpen();
+
+
+    }
 
 
     function logout() {
@@ -63,10 +78,10 @@ export default function ConsultasMedico() {
             .catch(erro => console.log(erro));
     }
 
-    function addDescricao(consulta) {
-        console.log(consulta)
+    function addDescricao(id) {
+        console.log(id)
         console.log('Vamos editar!')
-        axios.patch('http://localhost:5000/api/Consultas/descricao/' + consulta.idConsulta, {
+        axios.patch('http://localhost:5000/api/Consultas/descricao/' + id, {
             Descricao: descricao
         }, {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
@@ -75,7 +90,7 @@ export default function ConsultasMedico() {
                 if (resposta.status === 200) {
                     console.log('A descrição foi alterada!');
                     setDescricao(resposta.data);
-                    setidDescricaoAlterada(consulta.idConsulta)
+                    //setidDescricaoAlterada(id)
                 }
                 buscarMInhasConsultas();
             })
@@ -111,27 +126,7 @@ export default function ConsultasMedico() {
                         <div className="container cards-style">
 
                             <div className="cards">
-                                {
-                                    listaConsultas.map((consulta) => {
-                                        return (
-                                            <div className="item-card" id={consulta.idConsulta}>
-                                                 <div className="borda_consulta"></div>
-                                                <article className="consulta">
-                                                    <div className="titulo-icone">
-                                                        <span></span>
-                                                        <h3>Atendimento</h3>
-                                                        <div >
-                                                            {/* <button value={descricao} className="botao-icone-ellipsis" onClick={() => addDescricao(consulta)} >
-                                                                <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
-                                                            </button>  */}
-                                                            <Button onClick={handleOpen}>
-                                                                <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
-                                                            </Button>
-
-                                                            {/* <i className="fas fa-ellipsis-v"></i> */}
-                                                            {/* <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" /> */}
-
-                                                            <Modal
+                            <Modal
                                                                 open={open}
                                                                 onClose={handleClose}
                                                                 aria-labelledby="modal-modal-title"
@@ -143,18 +138,15 @@ export default function ConsultasMedico() {
                                                                    
                                                                     <div className="space-modal-descricao">
                                                                         <form>
-                                                                            <input type="text" value={descricao} onChange={(campo) => setDescricao(campo.target.value)} />
+                                                                            <input type="text"  onChange={(campo) => setDescricao(campo.target.value)} />
                                                                         </form>
                                                                         <button
                                                                             
                                                                             className="add-descricao-btn"
                                                                             disabled={descricao === '' ? 'none' : ''}
-                                                                            onClick={addDescricao(consulta)}
+                                                                            onClick={() =>addDescricao(id_atual)}
                                                                         >
-                                                                            {idDescricaoAlterada === 0
-                                                                                ? 'Salvar'
-                                                                                : 'Atualizar'}
-                                                                            
+                                                                           Salvar
                                                                         </button>
                                                                     </div>
                                                                 
@@ -162,6 +154,29 @@ export default function ConsultasMedico() {
                                                                     </div>
                                                                 </Box>
                                                             </Modal>
+
+
+                                {
+                                    listaConsultas.map((consulta) => {
+                                        return (
+                                            <div key={consulta.idConsulta} className="item-card" id={consulta.idConsulta}>
+                                                 <div className="borda_consulta"></div>
+                                                <article className="consulta">
+                                                    <div className="titulo-icone">
+                                                        <span></span>
+                                                        <h3>Atendimento</h3>
+                                                        <div >
+                                                            {/* <button value={descricao} className="botao-icone-ellipsis" onClick={() => addDescricao(consulta)} >
+                                                                <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
+                                                            </button>  */}
+                                                            <Button onClick={() =>abrirModal(consulta.idConsulta)}>
+                                                                <FontAwesomeIcon icon={faPen} className="icone-ellipsis" />
+                                                            </Button>
+
+                                                            {/* <i className="fas fa-ellipsis-v"></i> */}
+                                                            {/* <FontAwesomeIcon icon={faEllipsisV}  className="icone-ellipsis" /> */}
+
+                                                           
                                                         </div>
                                                     </div>
                                                     <div className="divisao-card">
