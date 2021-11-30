@@ -146,7 +146,7 @@ export default function ConsultasMedico() {
                                                                             <input type="text" value={descricao} onChange={(campo) => setDescricao(campo.target.value)} />
                                                                         </form>
                                                                         <button
-                                                                            type="submit"
+                                                                            
                                                                             className="add-descricao-btn"
                                                                             disabled={descricao === '' ? 'none' : ''}
                                                                             onClick={addDescricao(consulta)}
