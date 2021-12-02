@@ -7,9 +7,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {StatusBar, StyleSheet} from 'react-native';
 
-// import Main from './src/telas/main';
 import Login from './src/telas/login';
-//import CameraPerfil from './src/screens/camera';
+import Consultas from './src/telas/listagemConsultas';
 
 const AuthStack = createStackNavigator();
 
@@ -25,7 +24,7 @@ class App extends Component {
             headerShown: false,
           }}>
           <AuthStack.Screen name="Login" component={Login} />
-          {/* <AuthStack.Screen name="Main" component={Main} /> */}
+          <AuthStack.Screen name="Consultas" component={Consultas} />
         </AuthStack.Navigator>
       </NavigationContainer>
     );

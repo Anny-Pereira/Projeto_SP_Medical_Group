@@ -40,7 +40,7 @@ namespace Senai_MedicalGroup_WebApi.Controllers
 
             try
             {
-                Usuario usuarioBuscado = _usuarioRepository.Login(login.Email, login.Senha);
+                Usuario usuarioBuscado = _usuarioRepository.Login(login.Email, login.Senha); 
 
                 if (usuarioBuscado == null)
                 {
