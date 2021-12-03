@@ -18,8 +18,8 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'ligia@gmail.com',
-            senha: '444'
+            email: 'mariana@outlook.com',
+            senha: '100'
         };
     }
 
