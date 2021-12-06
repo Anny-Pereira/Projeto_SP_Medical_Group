@@ -66,7 +66,7 @@ export default function ConsultasMedico() {
     }
 
     function buscarMInhasConsultas() {
-        axios('http://localhost:5000/api/Consultas/medico', {
+        axios('http://192.168.3.253:5000/api/consultas/medico', {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
         })
             .then(resposta => {
@@ -81,7 +81,7 @@ export default function ConsultasMedico() {
     function addDescricao(id) {
         console.log(id)
         console.log('Vamos editar!')
-        axios.patch('http://localhost:5000/api/Consultas/descricao/' + id, {
+        axios.patch('http://192.168.3.253:5000/api/Consultas/descricao/' + id, {
             Descricao: descricao
         }, {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
@@ -195,7 +195,7 @@ export default function ConsultasMedico() {
                                                             </div>
                                                             <div className="item">
                                                                 <span className="titulo">Clínica</span>
-                                                                <span className="conteudo-consulta">{consulta.idPacienteNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
+                                                                <span className="conteudo-consulta">{consulta.idMedicoNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
                                                             </div>
                                                             <div className="item">
                                                                 <span className="titulo">Descrição</span>

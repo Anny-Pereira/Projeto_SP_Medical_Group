@@ -19,7 +19,7 @@ export default function ConsultasPaciente(){
     }
 
     function buscarMInhasConsultas(){
-        axios('http://localhost:5000/api/Consultas/paciente', {
+        axios('http://192.168.3.253:5000/api/Consultas/paciente', {
             headers:{'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')}
         })
         .then(resposta => {
@@ -89,7 +89,7 @@ export default function ConsultasPaciente(){
                                 </div>
                                 <div className="item">
                                     <span className="titulo">Clínica</span>
-                                    <span className="conteudo-consulta">{consulta.idMedicoNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
+                                    <span className="conteudo-consulta">{consulta.idPacienteNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica}</span>
                                 </div>
                                 <div className="item">
                                     <span className="titulo">Descrição</span>

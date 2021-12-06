@@ -71,7 +71,7 @@ export default function ConsultasAdm() {
 
 
     function listarPacientes() {
-        axios('http://localhost:5000/api/Pacientes', {
+        axios('http://192.168.3.253:5000/api/Pacientes', {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
         })
 
@@ -87,7 +87,7 @@ export default function ConsultasAdm() {
 
 
     function listarMedicos() {
-        axios('http://localhost:5000/api/Medicos', {
+        axios('http://192.168.3.253:5000/api/Medicos', {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
         })
 
@@ -102,7 +102,7 @@ export default function ConsultasAdm() {
 
 
     function listarConsultas() {
-        axios('http://localhost:5000/api/Consultas', {
+        axios('http://192.168.3.253:5000/api/Consultas', {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
         })
             .then(resposta => {
@@ -122,7 +122,7 @@ export default function ConsultasAdm() {
 
         setIsLoadig(true);
 
-        axios.post('http://localhost:5000/api/Consultas', {
+        axios.post('http://192.168.3.253:5000/api/Consultas', {
             idPaciente: idPaciente,
             idMedico: idMedico,
             idSituacao: idSituacao,
@@ -157,7 +157,7 @@ export default function ConsultasAdm() {
     function excluirConsulta(consulta){
         //console.log(consulta)
         //console.log(consulta.idConsulta)
-        axios.delete('http://localhost:5000/api/Consultas/' + consulta.idConsulta ,{
+        axios.delete('http://192.168.3.253:5000/api/Consultas/' + consulta.idConsulta ,{
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login') }
         })
             .then(resposta => {

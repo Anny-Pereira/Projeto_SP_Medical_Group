@@ -25,7 +25,7 @@ export default class Login extends Component {
 
         this.setState({errorMessage: '', isLoading: true})
 
-        axios.post('http://localhost:5000/api/Login',{
+        axios.post('http://192.168.3.253:5000/api/login',{
             email: this.state.email,
             senha: this.state.senha
         })

@@ -14,6 +14,7 @@ export default class Consultas extends Component {
         super(props);
         this.state = {
             listaMinhasConsultas: [],
+            isLoading: false
         };
     }
 
@@ -34,13 +35,14 @@ export default class Consultas extends Component {
     listarConsultas = async () => {
         try {
 
+           
             const token = await AsyncStorage.getItem('userToken');
 
-            console.warn(jwtDecode(token));
+           // console.warn(jwtDecode(token));
 
             //role = ({jwtDecode(token).role};
 
-            console.warn(jwtDecode(token).role);
+           // console.warn(jwtDecode(token).role);
 
 
             //MÉDICO
@@ -52,8 +54,10 @@ export default class Consultas extends Component {
                 });
 
                 if (resposta.status === 200) {
+                    isLoading = false;
                     const dadosApi = resposta.data;
                     this.setState({ listaMinhasConsultas: dadosApi });
+                    // console.warn(listaMinhasConsultas)
                 }
 
             }
@@ -69,9 +73,10 @@ export default class Consultas extends Component {
                 });
 
                 if (resposta.status === 200) {
+                    isLoading = true;
                     const dadosApi = resposta.data;
                     this.setState({ listaMinhasConsultas: dadosApi });
-                    console.warn(listaMinhasConsultas);
+                    // console.warn(listaMinhasConsultas);
                 }
 
             }
@@ -127,38 +132,44 @@ export default class Consultas extends Component {
            </View>
 
            <View style={styles.conteudoAtendimento}>
-               <View style={styles.info1}>
-                   <View>
+               {/* <View style={styles.info1}> */}
+                   <View style={styles.itemConsultaEspaco}>
                        <Text style={styles.h3}>Médico</Text>
-                       <Text style={styles.pConsulta}>{(item.idMedicoNavigation.nomeMedico)
-                       }</Text>
-                       {/* <Text style={styles.pConsulta}>{item.idMedicoNavigation.nomeMedico}</Text> */}
+                       <Text style={styles.pConsulta}>{(item.idMedicoNavigation.nomeMedico)}</Text>
                    </View>
-                   <View>
+                   <View style={styles.itemConsultaEspaco}>
                        <Text style={styles.h3}>Clínica</Text>
+                       {isLoading 
+                       ? <Text style={styles.pConsulta}>{(item.idPacienteNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica)}</Text> 
+                       : <Text style={styles.pConsulta}>{(item.idMedicoNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica)}</Text>
+                       }
                        {/* <Text style={styles.pConsulta}>{(item.idPacienteNavigation.idUsuarioNavigation.idClinicaNavigation.nomeClinica)}</Text> */}
                    </View>
-
-                   <View>
+               {/* </View>
+               <View style={styles.info2}> */}
+                   <View style={styles.itemConsultaEspaco}>
+                       <Text style={styles.h3}>Data e Hora</Text>
+                       <Text style={styles.pConsulta}>{Intl.DateTimeFormat('pt-BR',  {
+                                year: 'numeric', month: 'numeric', day: 'numeric',
+                                hour: 'numeric', minute: 'numeric',
+                                hour12: false
+                            }).format(new Date(item.dataConsulta))}</Text>
+                   </View>
+                   <View style={styles.itemConsultaEspaco}>
+                       <Text style={styles.h3}>Especialidade</Text>
+                       <Text style={styles.pConsulta}>{(item.idMedicoNavigation.idEspecialidadeNavigation.tituloEspecialidade)}</Text>
+                   </View>
+                   <View style={styles.itemConsultaEspaco}>
+                       <Text style={styles.h3}>Situação</Text>
+                       <Text style={styles.pConsulta}>{(item.idSituacaoNavigation.descricao)}</Text>
+                   </View>
+                   
+                   <View style={styles.itemConsultaEspaco}>
                        <Text style={styles.h3}>Descrição</Text>
                        <Text style={styles.pConsulta}>{(item.descricao)}</Text>
                    </View>
 
-               </View>
-               <View style={styles.info2}>
-                   <View>
-                       <Text style={styles.h3}>Data e Hora</Text>
-                       <Text style={styles.pConsulta}>{Intl.DateTimeFormat('pt-BR').format(new Date(item.dataConsulta))}</Text>
-                   </View>
-                   <View>
-                       <Text style={styles.h3}>Especialidade</Text>
-                       <Text style={styles.pConsulta}>{(item.idMedicoNavigation.idEspecialidadeNavigation.tituloEspecialidade)}</Text>
-                   </View>
-                   <View>
-                       <Text style={styles.h3}>Situação</Text>
-                       <Text style={styles.pConsulta}>{(item.idSituacaoNavigation.descricao)}</Text>
-                   </View>
-               </View>
+               {/* </View> */}
            </View>
 
        </View>
@@ -219,22 +230,28 @@ const styles = StyleSheet.create({
         //fontStyle: 'Poppins',
         fontSize: 40,
         fontFamily: "Poppins",
+        textShadowColor: 'rgba(0, 0, 0, 0.7)',
+        textShadowOffset: {width: 2, height: 2},
+        textShadowRadius: 15
     },
+
+    ///
 
     main: {
         backgroundColor: '#DEBFFF',
         flex: 0.65,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-around',
+        padding:20
     },
 
     card: {
-        flex: 0.3,
+        flex: 4,
+        width:280,
         backgroundColor: '#FFF',
-        // height: '150%',
-        width: '100%',
         borderRadius: 15,
         justifyContent: 'space-around',
+        alignItems: 'center',
         padding: 30,
 
     },
@@ -254,27 +271,31 @@ const styles = StyleSheet.create({
         color: '#6D60F7',
     },
 
+    itemConsultaEspaco:{
+        padding: 5,
+        //backgroundColor: 'red'
+    },
+
     conteudoAtendimento: {
-        flex: 5,
-        // height: '80%',
+        flex: 0.8,
+        width:'100%',
+        //height: '80%',
         //backgroundColor: 'red',
-        //padding: 40,
-        //flexDirection: 'column',
-        justifyContent: 'space-between',
-        flexDirection: 'row'
+        flexDirection: 'column',
+        justifyContent:'space-between'
     },
 
-    info1: {
-       // flex: 1,
-        justifyContent: 'space-between',
-        // height: 50
-    },
+    // info1: {
+    //    // flex: 1,
+    //     justifyContent: 'space-between',
+    //     // height: 50
+    // },
 
-    info2: {
-        //flex: 1,
-        justifyContent: 'space-around',
-        // height: 50
-    },
+    // info2: {
+    //     //flex: 1,
+    //     justifyContent: 'space-around',
+    //     // height: 50
+    // },
 
     h3: {
         color: '#6D60F7',
