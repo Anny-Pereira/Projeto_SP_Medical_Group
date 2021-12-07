@@ -226,13 +226,13 @@ const styles = StyleSheet.create({
     h1: {
         //backgroundColor: 'red',
         color: '#6D60F7',
-        fontWeight: '700',
-        //fontStyle: 'Poppins',
-        fontSize: 40,
-        fontFamily: "Poppins",
+        //fontWeight: '700',
+        fontSize: 50,
+        fontFamily: "Poppins-Regular",
         textShadowColor: 'rgba(0, 0, 0, 0.7)',
         textShadowOffset: {width: 2, height: 2},
-        textShadowRadius: 15
+        textShadowRadius: 15,
+        textAlign: 'center'
     },
 
     ///
@@ -266,13 +266,14 @@ const styles = StyleSheet.create({
     },
 
     h2: {
-        fontWeight: '500',
+        //fontWeight: '500',
         fontSize: 22,
         color: '#6D60F7',
+        fontFamily: "Poppins-Regular"
     },
 
     itemConsultaEspaco:{
-        padding: 5,
+        padding: 3,
         //backgroundColor: 'red'
     },
 
@@ -300,13 +301,15 @@ const styles = StyleSheet.create({
     h3: {
         color: '#6D60F7',
         fontSize: 18,
-        fontWeight: '500'
+        //fontWeight: '500'
+        fontFamily: "Poppins-Regular"
     },
 
     pConsulta: {
         color: '#000',
         fontSize: 18,
-        fontWeight: '500'
+        fontWeight: '500',
+        fontFamily: "Poppins-Regular"
     },
 
 })
