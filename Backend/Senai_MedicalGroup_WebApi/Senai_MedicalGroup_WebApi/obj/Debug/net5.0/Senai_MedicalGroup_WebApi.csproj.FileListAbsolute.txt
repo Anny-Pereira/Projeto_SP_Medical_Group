@@ -340,4 +340,4 @@ C:\Users\45597675800\Desktop\Projeto_SP_Medical_Group\Backend\Senai_MedicalGroup
 C:\Users\45597675800\Desktop\Projeto_SP_Medical_Group\Backend\Senai_MedicalGroup_WebApi\Senai_MedicalGroup_WebApi\obj\Debug\net5.0\scopedcss\bundle\Senai_MedicalGroup_WebApi.styles.css
 C:\Users\45597675800\Desktop\Projeto_SP_Medical_Group\Backend\Senai_MedicalGroup_WebApi\Senai_MedicalGroup_WebApi\obj\Debug\net5.0\Senai_MedicalGroup_WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\45597675800\Desktop\Projeto_SP_Medical_Group\Backend\Senai_MedicalGroup_WebApi\Senai_MedicalGroup_WebApi\obj\Debug\net5.0\Senai_MedicalGroup_WebApi.genruntimeconfig.cache
-C:\Users\45597675800\Documents\SENAI DM\Projeto_SP_Medical_Group\Backend\Senai_MedicalGroup_WebApi\Senai_MedicalGroup_WebApi\bin\Debug\net5.0\Senai_MedicalGroup_WebApi.StaticWebAssets.xml
+C:\Users\45597675800\Documents\SENAI DM\Projeto_SP_Medical_Group\Backend\Senai_MedicalGroup_WebApi\Senai_MedicalGroup_WebApi\obj\Debug\net5.0\Senai_MedicalGroup_WebApi.csproj.CopyComplete
