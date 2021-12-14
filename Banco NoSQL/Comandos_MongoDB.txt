@@ -1,0 +1,11 @@
+Seguir caminho:
+C:\Program Files\MongoDB\Server\5.0\bin
+
+*Program Files = Arquivos de Programas
+
+
+Executar:
+use SpMedGroup
+db
+db.createCollection("mapas")
+show collections

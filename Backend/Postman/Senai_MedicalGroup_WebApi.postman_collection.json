@@ -191,7 +191,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"sarah@gmail.com\",\r\n    \"senha\": \"404\"\r\n}",
+							"raw": "{\r\n    \"email\": \"roberto.possarle@spmedicalgroup.com.br\",\r\n    \"senha\": \"222\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -686,7 +686,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjk2NTMxMywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.vgmfzSvNocPvSV8M9-Wp1K1-HFRShvADUi9eB5Ws_V4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsInJvbGUiOiIxIiwiZXhwIjoxNjM2ODQ5NjU0LCJpc3MiOiJNZWRpY2FsR3JvdXAuV2ViQXBpIiwiYXVkIjoiTWVkaWNhbEdyb3VwLldlYkFwaSJ9.rEV1cu1Yf1fL0-auDrfc7DUlkgpSP-u30pKNFqPJy2Y",
 									"type": "string"
 								}
 							]
@@ -780,10 +780,20 @@
 				{
 					"name": "Deletar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmFoQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsInJvbGUiOiIxIiwiZXhwIjoxNjM2ODUwODkwLCJpc3MiOiJNZWRpY2FsR3JvdXAuV2ViQXBpIiwiYXVkIjoiTWVkaWNhbEdyb3VwLldlYkFwaSJ9.GR8XrPKYs_FOoRm_5lBXUc1iMilYTS3Z05BM5RfUx04",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/consultas/",
+							"raw": "http://localhost:5000/api/consultas/15",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -792,7 +802,7 @@
 							"path": [
 								"api",
 								"consultas",
-								""
+								"15"
 							]
 						}
 					},
@@ -880,7 +890,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGVuYS5zb3V6YUBzcG1lZGljYWxncm91cC5jb20uYnIiLCJqdGkiOiIzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsImV4cCI6MTYzMjg0MTY3OCwiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.zDPpnIY7FFHlJPBRlnalxfWpUj_PKflAcEQeyGEB4hs",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvYmVydG8ucG9zc2FybGVAc3BtZWRpY2FsZ3JvdXAuY29tLmJyIiwianRpIjoiMiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IjIiLCJyb2xlIjoiMiIsImV4cCI6MTYzNzAxNDg5NywiaXNzIjoiTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6Ik1lZGljYWxHcm91cC5XZWJBcGkifQ.jFcIzBxkiWmS6BPWgCD0aYwiwIPjHw10c_fHWfZzVAQ",
 									"type": "string"
 								}
 							]
@@ -1281,6 +1291,66 @@
 								"api",
 								"pacientes",
 								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Localizacao",
+			"item": [
+				{
+					"name": "ListarTodas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.3.253:5000/api/localizacoes",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"3",
+								"253"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"localizacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitude\": \"-23.53553231688874\",\r\n    \"longitude\": \"-46.64616072552391\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.3.253:5000/api/localizacoes",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"3",
+								"253"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"localizacoes"
 							]
 						}
 					},

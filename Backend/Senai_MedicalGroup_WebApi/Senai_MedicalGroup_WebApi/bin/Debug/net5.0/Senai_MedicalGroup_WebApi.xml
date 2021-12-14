@@ -376,6 +376,11 @@
             <param name="idUsuario">id do paciente que vera suas consultas</param>
             <returns>Lista de consultas de um determinado paciente</returns>
         </member>
+        <member name="T:Senai_MedicalGroup_WebApi.Interfaces.ILocalizacaoRepository">
+            <summary>
+            Interface responsável pela LocalizacaoRepository
+            </summary>
+        </member>
         <member name="T:Senai_MedicalGroup_WebApi.Interfaces.IMedicoRepository">
             <summary>
             Interface responsável pelo MedicoRepository
