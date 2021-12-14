@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps</title>
+
+    <script 
+    src="http://maps.google.com/maps/api/js?sensor=false" 
+    type="text/javascript"
+    ></script>
+
+    <style>
+        #map{
+            height: 100%;
+        }
+
+        html, body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        //MUDAR IP
+        fetch("http://192.168.0.13:5000/api/localizacoes")
+
+        .then(resposta => resposta.json())
+        .then(data => montarMapa(data))
+
+        .catch(erro => console.log(erro));
+
+        function montarMapa(itens){
+            //Mapa criado*
+            var map = new google.maps.Map(document.getElementById("map"),{
+                zoom : 10,
+                center : new google.maps.LatLng(-23.53553231688874, -46.64616072552391),
+                mapTypeId : google.maps.MaTypeId.ROADMAP 
+            });
+
+            //o que é?
+            var infoWindow = new google.maps.infoWindow();
+
+            //marker = marcador, 
+            //i - contador 
+            var marker, i;
+
+            for (i = 0; i < itens.length; i++) {
+                marker = new google.maps.Marker({
+                    position : new google.maps.LatLng(
+                        itens[i].latitude,
+                        itens[i].longitude
+                    ),
+                    //Propriedade : Mapa criado*
+                    map: map
+                });
+
+                google.maps.event.addListener(
+                    marker,
+                    "click",
+                    (function (marker, i) {
+                        return function () {
+                            infoWindow.setContent(itens[i].id);
+                            infoWindow.open(map, marker);
+                        };
+                    }) (marker, i)
+                    //sintaxe para a função anônima ser imediatamente envocada
+                )
+            }
+
+        }
+
+    </script>
+</body>
+</html>
