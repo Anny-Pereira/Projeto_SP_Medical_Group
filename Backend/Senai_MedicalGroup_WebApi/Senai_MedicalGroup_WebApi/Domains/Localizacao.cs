@@ -25,7 +25,12 @@ namespace Senai_MedicalGroup_WebApi.Domains
         public string Longitude { get; set; }
 
 
-       /* [BsonRequired]
-        public string Especialidade { get; set; }*/
+        [BsonRequired]
+        public string Especialidade { get; set; }
+
+
+        [BsonRequired]
+        public string Endereco { get; set; }
+
     }
 }

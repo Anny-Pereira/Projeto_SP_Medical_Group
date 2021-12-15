@@ -37,7 +37,7 @@ namespace Senai_MedicalGroup_WebApi
                 options.AddPolicy("CorPolicy",
                                 builder =>
                                 {
-                                    builder.WithOrigins("http://localhost:3000")
+                                    builder.WithOrigins("*")
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
                                 });

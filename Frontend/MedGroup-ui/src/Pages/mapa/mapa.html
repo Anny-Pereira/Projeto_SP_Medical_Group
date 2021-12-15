@@ -29,29 +29,36 @@
     <div id="map"></div>
     <script>
         //MUDAR IP
-        fetch("http://192.168.0.13:5000/api/localizacoes")
+
+        //Casa
+        //fetch("http://192.168.0.13:5000/api/localizacoes")
+
+        //Senai
+        fetch("http://192.168.3.253:5000/api/localizacoes")
 
         .then(resposta => resposta.json())
-        .then(data => montarMapa(data))
+        .then(itens => montarMapa(itens))
 
         .catch(erro => console.log(erro));
 
         function montarMapa(itens){
             //Mapa criado*
             var map = new google.maps.Map(document.getElementById("map"),{
-                zoom : 10,
+                zoom : 17,
                 center : new google.maps.LatLng(-23.53553231688874, -46.64616072552391),
-                mapTypeId : google.maps.MaTypeId.ROADMAP 
+                mapTypeId : google.maps.MapTypeId.ROADMAP 
             });
 
-            //o que é?
-            var infoWindow = new google.maps.infoWindow();
+            
+        
+            var infoWindow = new google.maps.InfoWindow();
 
             //marker = marcador, 
             //i - contador 
             var marker, i;
 
             for (i = 0; i < itens.length; i++) {
+                console.log(itens[i].latitude);
                 marker = new google.maps.Marker({
                     position : new google.maps.LatLng(
                         itens[i].latitude,
@@ -66,7 +73,11 @@
                     "click",
                     (function (marker, i) {
                         return function () {
-                            infoWindow.setContent(itens[i].id);
+                            //
+                            infoWindow.setContent(
+                            itens[i].endereco + " - " +
+                            itens[i].especialidade
+                            );
                             infoWindow.open(map, marker);
                         };
                     }) (marker, i)
